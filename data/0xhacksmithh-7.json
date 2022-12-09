@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xhacksmithh",
+  "risk": "2",
+  "title": "universalApproveMax will not work for some tokens that don't support approve type(uint256).max amount.",
+  "issueId": 7,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/7"
+}
