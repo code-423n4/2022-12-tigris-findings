@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xhacksmithh",
+  "risk": "2",
+  "title": "IERC20.TRANSFER AND IERC20.TRANSFERFROM DOES NOT SUPPORT ALL ERC20 TOKEN",
+  "issueId": 6,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/6"
+}
