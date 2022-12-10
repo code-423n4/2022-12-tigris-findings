@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "pwnforce",
+  "risk": "3",
+  "title": "Unhandled return value of transferFrom ERC20 tokens, buying NFTs without providing any tokens",
+  "issueId": 25,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/25"
+}
