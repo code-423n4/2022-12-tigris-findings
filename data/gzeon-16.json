@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "gzeon",
+  "risk": "2",
+  "title": "Fee invariant might not hold due to overflow",
+  "issueId": 16,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/16"
+}
