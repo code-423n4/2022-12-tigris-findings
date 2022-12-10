@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ch13fd357r0y3r",
+  "risk": "2",
+  "title": "`depositWithPermit()` will fail when Depositing the Stable coins without permit function Eg: Tether.",
+  "issueId": 12,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/12"
+}
