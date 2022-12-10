@@ -1,0 +1,3 @@
+In (Trading.sol)[https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol] 
+
+It looks like this contract is defining an interface called ***ITradingExtension***. This interface defines a number of functions that can be called on a contract that implements it. Some of these functions include ***getVerifiedPrice***, ***getRef***, ***validateTrade***, and paused. It is not clear from this code what the purpose of these functions is or how they are intended to be used.
