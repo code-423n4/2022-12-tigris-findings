@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "pwnforce",
+  "risk": "3",
+  "title": "Unhandled return value of transferFrom ERC20 tokens, receiving tigAssets without depositing any tokens",
+  "issueId": 28,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/28"
+}
