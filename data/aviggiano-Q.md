@@ -1,0 +1,3 @@
+# Use constructor instead of initialization function
+
+The contract `Referrals.sol` initializes state variables through a [`initRefs`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L60-L65) external function with `onlyOnwer` modifier, and a `isInit` state variable to keep track of the initialization. This pattern should be discouraged, as it introduces unnecessary state variables in the contract, increases contract size and gas costs, and opens door to potential developer mistakes (in the case where the developer forgets to include the modifier or to set the `isInit` variable on future contracts, for example)
