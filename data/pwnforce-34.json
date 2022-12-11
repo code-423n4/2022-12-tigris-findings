@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "pwnforce",
+  "risk": "2",
+  "title": "Tokens with more than 18 decimal points will cause issues for depositing and withdrawing functionalities",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/34"
+}
