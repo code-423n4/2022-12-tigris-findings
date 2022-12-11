@@ -65,6 +65,7 @@ function initRefs(
         }
         for (uint i=0; i<_referredAL; i++) {
              require(_referred[_referredA[i]]] == 0, "referred already set"); // @audit
+             require(_referral[_referredA[i]] == 0, "already a referral"); // @audit
             _referred[_referredA[i]] = _referredTo[i];
         }
     }
