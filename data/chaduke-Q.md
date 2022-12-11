@@ -70,3 +70,22 @@ function initRefs(
         }
     }
 ```
+
+QA9: https://github.com/code-423n4/2022-12-tigris/blob/496e1974ee3838be8759e7b4096dbee1b8795593/contracts/TradingExtension.sol#L190-L202
+Fail to revert when the arguments are invalid, the correct implementation is:
+```
+function _setReferral(
+        bytes32 _referral,
+        address _trader
+    ) external onlyProtocol {
+        
+        if (_referral != bytes32(0) && 
+             referrals.getReferral(_referral) != address(0) &&
+              referrals.getReferred(_trader) == bytes32(0)) {
+                    referrals.setReferred(_trader, _referral);
+        }
+ 
+        Revert("failing to set referred.");   
+    }
+
+```
