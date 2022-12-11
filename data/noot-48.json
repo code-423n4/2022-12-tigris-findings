@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "noot",
+  "risk": "3",
+  "title": "Closing price can be manipulated in `limitClose`",
+  "issueId": 48,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/48"
+}
