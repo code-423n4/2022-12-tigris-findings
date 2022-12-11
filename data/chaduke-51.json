@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "_checkDelay does not check the delay properly",
+  "issueId": 51,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/51"
+}
