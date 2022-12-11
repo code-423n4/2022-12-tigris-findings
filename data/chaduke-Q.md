@@ -24,3 +24,4 @@ function setReferred(address _referredTrader, bytes32 _hash) external onlyProtoc
         emit Referred(_referredTrader, _hash);
     }
 ```
+QA5: It is advised to lock all contracts to the most recent version 0.8.17.
