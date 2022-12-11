@@ -38,7 +38,7 @@ require(_referredA.length == _referredTo.length), "array lengths not equal.");
 QA7. https://github.com/code-423n4/2022-12-tigris/blob/496e1974ee3838be8759e7b4096dbee1b8795593/contracts/Referrals.sol#L32
 Function ``setReferred`` fails to check if ``_hash`` is a valid one or not.
 ```
-   require(_referral(_hash) == 0, "Invalid _hash");
+   require(_referral(_hash) != 0, "Invalid _hash");
 ```
 
 QA8: https://github.com/code-423n4/2022-12-tigris/blob/496e1974ee3838be8759e7b4096dbee1b8795593/contracts/Referrals.sol#L60-L76
@@ -64,8 +64,8 @@ function initRefs(
             _referral[_ownedCodes[i]] = _codeOwners[i];
         }
         for (uint i=0; i<_referredAL; i++) {
-             require(_referred[_referredA[i]]] == 0, "referred already set"); // @audit
-             require(_referral[_referredA[i]] == 0, "already a referral"); // @audit
+             require(_referred[_referredTo[i]] != 0, "Invalid referral"); // @audit
+             require(_referral[_referredTo[i]] != [_referredA[i], "cannot refer yourself"); // @audit
             _referred[_referredA[i]] = _referredTo[i];
         }
     }
