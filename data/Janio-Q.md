@@ -1,8 +1,6 @@
-## Function `StableVault.listToken` accepts `address(0)` as new token
+## Function StableVault.listToken accept address(0) as new token
 
 The `listToken(...)` function does not validate the `_token` address.
-
-
 
 ```solidity
     function listToken(address _token) external onlyOwner {
@@ -12,34 +10,14 @@ The `listToken(...)` function does not validate the `_token` address.
         allowed[_token] = true;
     }
 ```
-
 **Recommendation:** Ensure the new token `_token` is a valid address.
-
----
-
-## Function `TradingExtension.setNode` accepts `address(0)` as new node
-
-The `setNode(...)` function does not validate the `_node` address.
-
-
-
-```solidity
-    function setNode(address _node, bool _bool) external onlyOwner {
-        isNode[_node] = _bool;
-    }
-```
-
-**Recommendation:** Ensure the new node `_node` is a valid address.
 
 ---
 
 ## Missing zero address validation and events 
 
-Constructors in `StableVault` and `TradingExtension` contracts do **NOT**: 
+The constructor in `StableVault`contract does not check if `_stable` local variable is `address(0)` and does not emit an event with the `stable` address set, since it's a immutable state variable.
 
-1 - Check if `_stable` local variable is different of `address(0)` and does not emit an event with the `stable` address set, since it's a immutable state variable.
-
-File: [`StableVault.sol#L36`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L36)
 
 ```solidity
     constructor(address _stable) {
@@ -47,24 +25,69 @@ File: [`StableVault.sol#L36`](https://github.com/code-423n4/2022-12-tigris/blob/
     }
 ```
 
-2 - Check `_trading` local variable is different of `address(0)` and does emit event.
+**Recommendation:** Consider validating `_stable` address and emitting an event for state variable changes.
 
-File: [`TradingExtension.sol#L35`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L35)
+## Try using uint instead of bools for storage to avoid overhead
 
+[`Trading.sol#L128`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L128)
 ```solidity
-    constructor(
-        address _trading,
-        address _pairsContract,
-        address _ref,
-        address _position
-    )
-    {
-        trading = _trading;
-        pairsContract = IPairsContract(_pairsContract);
-        referrals = IReferrals(_ref);
-        position = IPosition(_position);
+   struct Delay {
+        ...
+        bool actionType; // True for open, False for close
     }
 ```
+[`TradingLibrary.sol#L18`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/utils/TradingLibrary.sol#L18)
+```solidity
+struct PriceData {
+    ...
+    bool isClosed;
+}
+```
+[`Position.sol#L20`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Position.sol#L20)
+```solidity
+mapping(address => bool) private _isMinter; // Trading contract should be minter
+```
+[`Position.sol#L34`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Position.sol#L34)
+```solidity
+mapping(uint256 => mapping(address => mapping(bool => int256))) private accInterestPerOi;
+```
+[`BondNFT.sol#L23`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L23)
+```solidity
+    struct Bond {
+        ...
+        bool expired;
+       }
+```
+[`IPosition.sol#L11`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/interfaces/IPosition.sol#L11)
+```solidity
+struct Trade {
+        ...
+        bool direction;
+        ...
+    }
+```
+[`IPosition.sol#L27`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/interfaces/IPosition.sol#L27)
+```solidity
+ struct MintTrade {
+        ...
+        bool direction;
+        ...
+    }
+```
+[`ITrading.sol#L15`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/interfaces/ITrading.sol#L15)
+```solidity
+struct TradeInfo {
+        ...
+        bool direction;
+        ...
+}
+```
+[`ITrading.sol#L27`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/interfaces/ITrading.sol#L27)
+```solidity
+    struct ERC20PermitData {
+        ...
+        bool usePermit;
+   }
+```
 
-**Recommendation:** Consider validating `_stable` and `_trading` addresses and emitting event for state variables changes.
-
+**Recommendation:** Consider using uint256(1) and uint256(2) for true and false to avoid wasting gas when changing from false to true, after having been true in the past
