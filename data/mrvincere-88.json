@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "mrvincere",
+  "risk": "3",
+  "title": "Insufficient Permission Check on \"setReferred\" function could lead to anyone set the referral data for any trader",
+  "issueId": 88,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/88"
+}
