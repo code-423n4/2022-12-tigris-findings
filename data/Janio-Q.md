@@ -1,4 +1,4 @@
-## Function StableVault.listToken accept address(0) as new token
+## Function `StableVault.listToken` accepts `address(0)` as new token
 
 The `listToken(...)` function does not validate the `_token` address.
 
@@ -14,6 +14,22 @@ The `listToken(...)` function does not validate the `_token` address.
 ```
 
 **Recommendation:** Ensure the new token `_token` is a valid address.
+
+---
+
+## Function `TradingExtension.setNode` accepts `address(0)` as new node
+
+The `setNode(...)` function does not validate the `_node` address.
+
+
+
+```solidity
+    function setNode(address _node, bool _bool) external onlyOwner {
+        isNode[_node] = _bool;
+    }
+```
+
+**Recommendation:** Ensure the new node `_node` is a valid address.
 
 ---
 
