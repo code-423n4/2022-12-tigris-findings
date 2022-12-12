@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "stealthyz",
+  "risk": "3",
+  "title": "'_limitOrders' array can be filled with ghost orders that override the user orders with reentrancy",
+  "issueId": 90,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/90"
+}
