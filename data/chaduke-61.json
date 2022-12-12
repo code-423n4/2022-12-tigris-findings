@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "setTradingExtension fails to assert the invariant tradingExtension.trading() == address(this)",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/61"
+}
