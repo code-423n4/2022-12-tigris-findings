@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "aviggiano",
+  "risk": "3",
+  "title": "Loss of precision in `GovNFT.accRewardsPerNFT` calculation lead funds forever stuck in the smart contract",
+  "issueId": 60,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/60"
+}
