@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "dic0de",
+  "risk": "2",
+  "title": "The current stableVault implementation does not support fee on transfer tokens",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/63"
+}
