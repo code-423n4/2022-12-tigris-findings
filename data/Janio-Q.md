@@ -19,7 +19,7 @@ The `listToken(...)` function does not validate the `_token` address.
 
 ## Functions in `TradingExtension` do not validate addresses
 
-File: [`TradingExtension.sol#L35`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L35)
+File: [`TradingExtension.sol#L240-L272`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L240-L272)
 
 The following functions accepts `address(0)`:
 
