@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "2",
+  "title": "No checks for \"transferFrom/transfer\" return value could allow free minting and loss of funds",
+  "issueId": 95,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/95"
+}
