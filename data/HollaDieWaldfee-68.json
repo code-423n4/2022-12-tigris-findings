@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "HollaDieWaldfee",
+  "risk": "3",
+  "title": "BondNFT.sol: Expired bond can increase accRewardsPerShare multiple times by calling claim function",
+  "issueId": 68,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/68"
+}
