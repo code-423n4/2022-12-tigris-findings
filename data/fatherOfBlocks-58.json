@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "fatherOfBlocks",
+  "risk": "2",
+  "title": "It is not recommended to use address.transfer()",
+  "issueId": 58,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/58"
+}
