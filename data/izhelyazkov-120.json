@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "izhelyazkov",
+  "risk": "2",
+  "title": "Centralization risk - NFTSale owner can front-run user transactions and steal users funds",
+  "issueId": 120,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/120"
+}
