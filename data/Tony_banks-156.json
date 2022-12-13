@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Tony_banks",
+  "risk": "2",
+  "title": "Integer overflows or underflows",
+  "issueId": 156,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/156"
+}
