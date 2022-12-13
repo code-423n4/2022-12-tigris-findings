@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Ruhum",
+  "risk": "2",
+  "title": "StableVault will cause the whole protocol to blow up if an underlying stablecoin loses its peg",
+  "issueId": 155,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/155"
+}
