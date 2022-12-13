@@ -1,16 +1,16 @@
 # QA report
 
 ## Low Risk
-| L-N    |Issue|Instances|
+| L-R    |Issue|Instances|
 |:------:|:----|:-------:|
 | [L&#x2011;01] | Missing zero address check in the constructor in `Trading.sol` and `TradingExtension.sol` | 3 |
 | [L&#x2011;02] | Unsafe ERC20 operations | 19 |
 
 Total: 22 instances over 2 issues
 
-## Non-critical
+# Non-critical
 
-| N-N    |Issue|Instances|
+| N-C    |Issue|Instances|
 |:------:|:----|:-------:|
 | [N&#x2011;01] | License comment is misspelled, consider changing it to: // SPDX-License-Identifier: UNLICENSED | 5 |
 | [N&#x2011;02] | Use latest Solidity version with a stable pragma statement | 22 |
@@ -37,9 +37,9 @@ Total: 22 instances over 2 issues
 
 Total: 76 instances over 22 issues
 
-## Low Risk
+# Low Risk
 
-# \[L-01\] Missing zero address check in the constructor in `Trading.sol` and `TradingExtension.sol`
+### \[L-01\] Missing zero address check in the constructor in `Trading.sol` and `TradingExtension.sol`
 
 ```solidity
 constructor(
@@ -85,11 +85,13 @@ Lines of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/GovNFT.sol#L303
 
+
+
 Consider adding zero address checks.
 
 
 
-# \[L-02\] Unsafe ERC20 operations
+### \[L-02\] Unsafe ERC20 operations
 
 ERC20 operations can be unsafe due to different implementations and vulnerabilities in the standard.
 
@@ -121,9 +123,9 @@ Lines of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L671
 
 
-## Non-critical
+# Non-critical
 
-# \[NC-01\] License comment is misspelled, consider changing it to: // SPDX-License-Identifier: UNLICENSED
+### \[NC-01\] License comment is misspelled, consider changing it to: // SPDX-License-Identifier: UNLICENSED
 
 Files where the issue is present:
 
@@ -135,13 +137,15 @@ Example:
 //SPDX-License-Identifier: Unlicense
 ```
 
-# \[NC-02\] Use latest Solidity version with a stable pragma statement
+### \[NC-02\] Use latest Solidity version with a stable pragma statement
 
-Using a floating pragma ^0.8.0 statement is discouraged as code can compile to different bytecodes with different compiler versions. Use a stable pragma statement to get a deterministic bytecode. Also use latest Solidity version to get all compiler features, bugfixes and optimizations.
+Using a floating pragma ^0.8.0 statement is discouraged as code can compile to different bytecodes with different compiler versions.
+
+Use a stable pragma statement to get a deterministic bytecode. Also use latest Solidity version to get all compiler features, bugfixes and optimizations.
 
 The issue is present in all of the contracts.
 
-# \[NC-03\] Constructor and modifiers are not declared in the proper place
+### \[NC-03\] Constructor and modifiers are not declared in the proper place
 
 File: `Position.sol`
 
@@ -149,11 +153,11 @@ Consider placing the constructor and modifiers before the functions not in the m
 
 Check the solidity documentation for more information on how to properly structure a smart contract.
 
-# \[NC-04\] Code is not formatted properly
+### \[NC-04\] Code is not formatted properly
 
 Use a code formatter to keep code clean & tidy, I’d suggest adding the forge fmt command to your pre-commit hook
 
-# \[NC-05\] Constants should be capitalized
+### \[NC-05\] Constants should be capitalized
 
 File: `Trading.sol`
 
@@ -166,7 +170,7 @@ Line of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L96
 
 
-# \[NC-06\] Constants should be defined rather than using magic numbers
+### \[NC-06\] Constants should be defined rather than using magic numbers
 
 File: `Trading.sol`
 
@@ -217,7 +221,7 @@ Lines of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/BondNFT.sol#L332
 
-# \[NC-07\] Consider naming certain variables with something more appropriate than their type
+### \[NC-07\] Consider naming certain variables with something more appropriate than their type
 
 File: `TradingExtension.sol`
 
@@ -236,7 +240,7 @@ Lines of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/TradingExtension.sol#L251
 
-# \[NC-08\] Avoid nested If blocks
+### \[NC-08\] Avoid nested If blocks
 
 File: `TradingExtension.sol`
 
@@ -251,7 +255,7 @@ Line of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/TradingExtension.sol#L195
 
-# \[NC-09\] Typo in comments
+### \[NC-09\] Typo in comments
 
 File: `PairsContract.sol`
 
@@ -272,7 +276,7 @@ Lines of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/PairsContract.sol#L151
 
 
-# \[NC-10\] Wrong parameter in the NatSpec
+### \[NC-10\] Wrong parameter in the NatSpec
 
 File: `PairsContract.sol`
 
@@ -288,25 +292,26 @@ Line of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/PairsContract.sol#L45
 
 
-# \[NC-11\] Use native time units such as seconds, minutes, hours, days, weeks and years
+### \[NC-11\] Use native time units such as seconds, minutes, hours, days, weeks and years
 
 File: `BondNFT.sol`
 
 ```solidity
 uint constant private DAY = 24 * 60 * 60;
 ```
-Consider changing it to: DAY = 1 day;
+
 
 Line of code: 
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/BondNFT.sol#L10
 
-# \[NC-12\] Interface `ITradingExtension.sol` in `Trading.sol` should be considered being a separate contract in the `interfaces` folder
+Consider changing it to: DAY = 1 day;
 
 
+### \[NC-12\] Interface `ITradingExtension.sol` in `Trading.sol` should be considered being a separate contract in the `interfaces` folder
 
 
-# \[NC-13\] Consider moving `IERC20.sol` import above the other imports in `Trading.sol`
+### \[NC-13\] Consider moving `IERC20.sol` import above the other imports in `Trading.sol`
 
 File: `Trading.sol`
 
@@ -322,19 +327,19 @@ import "./interfaces/IStableVault.sol";
 import "./utils/TradingLibrary.sol";
 ```
 
-# \[NC-14\] Events, structs and custom errors declaration
+### \[NC-14\] Events, structs and custom errors declaration
 
 It is a best practice to be declared in the interface not in the implementation contract.
 
 File: `Trading.sol`, `Referrals.sol`, `PairsContract.sol`, `GovNFTBridged.sol`, `GovNFT.sol`, `BondNFT.sol`
 
-# \[NC-15\] Event is missing indexed fields
+### \[NC-15\] Event is missing indexed fields
 
 Index event fields make the field more quickly accessible to off-chain tools that parse events. However, note that each index field costs extra gas during emission, so it's not necessarily best to index the maximum allowed per event (three fields). Each event should use three indexed fields if there are three or more fields, and gas usage is not particularly of concern for the events in question. If there are fewer than three fields, all of the fields should be indexed.
 
 All events in the following files: `Trading.sol`, `Referrals.sol`, `PairsContract.sol`, `GovNFTBridged.sol`, `GovNFT.sol`, `BondNFT.sol`
 
-# \[NC-16\] Unclear comment
+### \[NC-16\] Unclear comment
 
 File: `Trading.sol`
 
@@ -347,11 +352,11 @@ Line of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L81
 
 
-# \[NC-17\] Its a convention to use uint256 instead of uint alone
+### \[NC-17\] It is a convention to use uint256 instead of uint alone
 
 This problem is present all through the contracts.
 
-# \[NC-18\] Visibility modifier should occur before `constant`
+### \[NC-18\] Visibility modifier should occur before `constant`
 
 File: `Trading.sol`
 
@@ -363,9 +368,9 @@ Line of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L95
 
-# \[NC-19\] Use custom errors
+### \[NC-19\] Use custom errors
 
-Almost all revert statements in `Trading.sol` should be substitued by custom erros
+Almost all revert statements in `Trading.sol` should be changed with custom errors
 
 Example:
 
@@ -377,7 +382,7 @@ Line of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L273
 
-# \[NC-20\] Consider creating a variable that holds the value of the decimal 
+### \[NC-20\] Consider creating a variable that holds the value of the decimal 
 
 This line of code is too long and hard to read, consider creating an extra variable for better readability
 
@@ -391,6 +396,7 @@ Line of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L675
 
+
 Consider creating a variable as follows: 
 
 ```solidity
@@ -403,7 +409,7 @@ if(IERC20......_toMint/(10**(18 - outputTokenDecimal) revert BadWithdraw();
 ```
 
 
-# \[NC-21\] `maxGasPrice` can be 1e12 for better readability
+### \[NC-21\] `maxGasPrice` can be 1e12 for better readability
 
 File: `TradingExtension.sol`
 
@@ -415,9 +421,10 @@ Line of code:
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/TradingExtension.sol#L26
 
-# \[NC-22\] Lack of event emitting 
+### \[NC-22\] Lack of event emitting 
 
 Contracts do not emit relevant events on setter functions.
+
 Consider emitting events after sensitive changes take place, to facilitate tracking and notify off-chain clients following the contract’s activity
 
 File: `TradingExtension.sol`
