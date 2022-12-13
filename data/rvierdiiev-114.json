@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "Ignore of bool return type when using ERC20.transfer/transferFrom",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/114"
+}
