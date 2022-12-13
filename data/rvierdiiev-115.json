@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "StableVault doesn't support tokens that has more than 18 decimals",
+  "issueId": 115,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/115"
+}
