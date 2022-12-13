@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "2",
+  "title": "Blacklisting a `tigAsset` results in freezing of user funds without earning rewards",
+  "issueId": 99,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/99"
+}
