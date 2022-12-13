@@ -1,6 +1,6 @@
-# Faucet.sol
-### Tx Origin Attacks
-In line#19 the contract written as
+The vulnerability found in Faucet.sol which the attacker could perform Tx Origin Attacks
+
+The code in line#19 the contract written as
 ```
 require(msg.sender == tx.origin, "Is Contract");
 ```
