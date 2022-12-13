@@ -35,6 +35,7 @@ Here are some of the instances entailed:
 [File: Trading.sol#L496](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L496)
 [File: Trading.sol#L543](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L543)
 [File: Trading.sol#L643](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L643)
+[File: Position.sol#L99-L109](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Position.sol#L99-L109)
 
 ## Unspecific compiler version pragma
 For most source-units the compiler version pragma is very unspecific ^0.8.0. While this often makes sense for libraries to allow them to be included with multiple different versions of an application, it may be a security risk for the actual application implementation itself. A known vulnerable compiler version may accidentally be selected or security tools might fall-back to an older compiler version ending up actually checking a different EVM compilation that is ultimately deployed on the blockchain.
@@ -81,4 +82,79 @@ Alternatively, it may also be refactored as follows:
 ```diff
 -    uint public maxGasPrice = 1000000000000; // 1000 gwei
 +    uint public maxGasPrice = 1e12; // 1000 gwei
+```
+## Minimization of truncation
+The number of divisions in an equation should be reduced to minimize truncation frequency, serving to achieve higher precision. And, where deemed fit, comment the code line with the original multiple division arithmetic operation for clarity reason.
+
+For instance, the equation below with three division may be refactored as follows:
+
+[File: TradingLibrary.sol#L64](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/utils/TradingLibrary.sol#L64)
+
+```diff
+-    _liqPrice = _tradePrice - ((_tradePrice*1e18/_leverage) * uint(int(_margin)+_accInterest) / _margin) * _liqPercent / 1e10;
++    _liqPrice = _tradePrice - (_tradePrice*1e18 * uint(int(_margin)+_accInterest) * _liqPercent) / (_leverage * _margin * 1e10);
+```
+## Typo mistakes
+[File: PairsContract.sol#L151](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L151)
+
+```diff
+-     * @param _onOpen true if adding to open interesr
++     * @param _onOpen true if adding to open interest
+```
+## Use `delete` to clear variables
+`delete a` assigns the initial value for the type to `a`. i.e. for integers it is equivalent to `a = 0`, but it can also be used on arrays, where it assigns a dynamic array of length zero or a static array of the same length with all elements reset. For structs, it assigns a struct with all members reset. Similarly, it can also be used to set an address to zero address or a boolean to false. It has no effect on whole mappings though (as the keys of mappings may be arbitrary and are generally unknown). However, individual keys and what they map to can be deleted: If `a` is a mapping, then `delete a[x]` will delete the value stored at x.
+
+The delete key better conveys the intention and is also more idiomatic.
+
+For instance, the `a = 0` instance below may be refactored as follows:
+
+[File: PairsContract.sol#L162](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L162)
+
+```diff
+-                _idToOi[_asset][_tigAsset].longOi = 0;
++                delete _idToOi[_asset][_tigAsset].longOi;
+```
+Similarly, the `a = false` instance below may be rewritten as follows:
+
+[File: StableVault.sol#L95](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L95)
+
+```diff
+-        allowed[_token] = false;
++        delete allowed[_token];
+```
+## OpenZeppelin draft abstract contract
+The protocol imports Openzeppelin's draft abstract contracts that are not ready for mainnet use. Contracts of this nature have not been time tested due to inadequate security auditing and are liable to modification and changes in future development. As such, the use of draft EIP712 in production contracts could result in associated permit functions failing to work as expected and impact both the protocol and the users.
+
+Here is an instance entailed:
+
+[File: StableToken.sol#L4](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableToken.sol#L4)
+
+```
+import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
+```
+## Modularity on import usages
+For cleaner Solidity code in conjunction with the rule of modularity and modular programming, use named imports with curly braces instead of adopting the global import approach.
+
+For instance, the import instances below could be refactored as follows:
+
+[File: StableVault.sol#L4-L7](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L4-L7)
+
+```
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import {MetaContext} from "./utils/MetaContext.sol";
+import {IStableVault.sol} from "./interfaces/IStableVault.sol";
+```
+## Unneeded `return` keyword on named returns
+Functions adopting named returns need not use the `return` keyword when returning their corresponding values.
+
+For instance, the return instance below may be refactored as follows:
+
+[File: StableToken.sol#L57-L59](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableToken.sol#L57-L59)
+
+```diff
+    function _msgSender() internal view override(Context, MetaContext) returns (address sender) {
+-        return MetaContext._msgSender();
++        sender = MetaContext._msgSender();
+    }
 ```
