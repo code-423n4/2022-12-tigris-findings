@@ -1,8 +1,9 @@
-# GovNFT.sol
-## vulnerable function - _mint()
+The vulnerability found in ```GovNFT.sol```
+
+The contract is using vulnerable function - _mint()
 
 
-line#50 to line#57 (https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L50-L57)
+The vulnerable code between line#50 to line#57 (https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L50-L57)
 ```
     function _mint(address to, uint256 tokenId) internal override {
         require(counter <= MAX, "Exceeds supply");
