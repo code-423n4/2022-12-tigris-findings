@@ -79,6 +79,16 @@ Here are some of the instances entailed:
 ```
 import "./interfaces/IReferrals.sol";
 ```
+[File: Lock.sol#L4](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol#L4)
+
+```
+import "hardhat/console.sol";
+```
+[File: StableVault.sol#L5](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L5)
+
+```
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+```
 ## Ternary over `if ... else`
 Using ternary operator instead of the if else statement saves gas.
 
@@ -166,3 +176,38 @@ PUSH1 [revert offset]
 JUMPI
 ```
 Disclaimer: There have been several bugs with security implications related to optimizations. For this reason, Solidity compiler optimizations are disabled by default, and it is unclear how many contracts in the wild actually use them. Therefore, it is unclear how well they are being tested and exercised. High-severity security issues due to optimization bugs have occurred in the past . A high-severity bug in the emscripten -generated solc-js compiler used by Truffle and Remix persisted until late 2018. The fix for this bug was not reported in the Solidity CHANGELOG. Another high-severity optimization bug resulting in incorrect bit shift results was patched in Solidity 0.5.6. Please measure the gas savings from optimizations, and carefully weigh them against the possibility of an optimization-related bug. Also, monitor the development and adoption of Solidity compiler optimizations to assess their maturity.
+
+## Unchecked SafeMath saves gas
+"Checked" math, which is default in ^0.8.0 is not free. The compiler will add some overflow checks, somehow similar to those implemented by `SafeMath`. While it is reasonable to expect these checks to be less expensive than the current `SafeMath`, one should keep in mind that these checks will increase the cost of "basic math operation" that were not previously covered. This particularly concerns variable increments in for loops. When no arithmetic overflow/underflow is going to happen, `unchecked { ++i ;}` to use the previous wrapping behavior further saves gas just as in the for loop below as an example:
+
+[File: Referrals.sol#L70-L72]https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L70-L72)
+
+```diff
+-        for (uint i=0; i<_codeOwnersL; i++) {
++        for (uint i=0; i<_codeOwnersL;) {
+              _referral[_ownedCodes[i]] = _codeOwners[i];
+
++            unchecked {
++                i++;
++            }
+          }
+```
+## Use of named returns for local variables saves gas
+You can have further advantages in term of gas cost by simply using named return values as temporary local variable.
+
+For instance, the code block instance below may be refactored as follows:
+
+[File: MetaContext.sol#L29-L35](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/utils/MetaContext.sol#L29-L35)
+
+```diff
+-    function _msgData() internal view virtual override returns (bytes calldata) {
++    function _msgData() internal view virtual override returns (bytes calldata _data) {
+        if (_isTrustedForwarder[msg.sender]) {
+-            return msg.data[:msg.data.length - 20];
++            _data = msg.data[:msg.data.length - 20];
+        } else {
+-            return super._msgData();
++            _data = super._msgData();
+        }
+    }
+```
