@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "aviggiano",
+  "risk": "2",
+  "title": "Malicious protocol owner can steal all users funds (Centralization risk)",
+  "issueId": 153,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/153"
+}
