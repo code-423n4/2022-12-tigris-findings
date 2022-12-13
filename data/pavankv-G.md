@@ -2,11 +2,13 @@
 In Solidity 0.8+, there’s a default overflow check on unsigned integers. It’s possible to uncheck this in for-loops and save some gas at each iteration, but at the cost of some code readability, as this uncheck cannot be made inline.
 
 code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L78
 
 
 ## 2.x = x + y is cheaper than x += y :-
 
 code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L52
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L293
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L509
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L511
@@ -23,6 +25,7 @@ https://code4rena.com/reports/2022-08-olympus/#g-11-x--x--y-is-cheaper-than-x--y
 Solidity version 0.8+ comes with implicit overflow and underflow checks on unsigned integers. When an overflow or an underflow isn’t possible (as an example, when a comparison is made before the arithmetic operation), some gas can be saved by using an unchecked block: https://docs.soliditylang.org/en/v0.8.10/control-structures.html#checked-or-unchecked-arithmetic.While this is inside an external view function, consider wrapping this in an unchecked statement so that external contracts calling this might save some gas
 
 code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L52
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L179
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L430
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L431
@@ -52,4 +55,10 @@ Revert strings that are longer than 32 bytes require at least one additional mst
 
 code snippet:-
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L877
+
+## 6  Splitting require() statements that use && saves gas:-
+&& use two AND opcodes ,one AND consumes 3 gas means two AND opcode consumes 6 gas in require statements so to save gas use two require statements.
+
+code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/utils/TradingLibrary.sol#L116
 
