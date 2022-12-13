@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xDave",
+  "risk": "3",
+  "title": "Stable token's decimal difference can be used to steal funds from the StableVault.",
+  "issueId": 163,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/163"
+}
