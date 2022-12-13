@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "dragotanqueray",
+  "risk": "3",
+  "title": "approveProxy Vulnerable to Social Engineering",
+  "issueId": 103,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/103"
+}
