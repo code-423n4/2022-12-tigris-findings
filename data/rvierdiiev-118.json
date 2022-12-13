@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "Lack of input validation in Referrals.initRefs",
+  "issueId": 118,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/118"
+}
