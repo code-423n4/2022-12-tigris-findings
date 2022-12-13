@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Tony_banks",
+  "risk": "2",
+  "title": "contract continuing execution even if the external function call fails.",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/157"
+}
