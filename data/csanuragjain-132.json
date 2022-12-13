@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "csanuragjain",
+  "risk": "2",
+  "title": "totalLocked amount of _asset is not updated",
+  "issueId": 132,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/132"
+}
