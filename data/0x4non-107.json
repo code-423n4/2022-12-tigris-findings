@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0x4non",
+  "risk": "2",
+  "title": "Steal of unlisted tokens by burning stable and griefing on `StableVault.sol`",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/107"
+}
