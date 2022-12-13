@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "2",
+  "title": "Unbounded loop in `claimGovFees` could result in loss of funds and DOS",
+  "issueId": 167,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/167"
+}
