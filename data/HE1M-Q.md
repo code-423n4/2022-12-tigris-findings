@@ -20,3 +20,19 @@ function createReferralCode(bytes32 _hash) external {
         emit ReferralCreated(_msgSender(), newHash);
     }
 ```
+
+## No. 2
+During handling the open fees, the `_tigAsset` is distributed to `gov`. But, it is not approved before to be consumed by `gov`. So, the first user's transaction to  initiate a market order, will fail.
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L749
+
+During handling the close fees, the approve max is applied every time before distributing to `gov`. Actually, this is redundant to approve max every time.
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L807
+
+So, the following check is better to be added before distributing to `gov` in both functions `_handleOpenFees` and `_handleCloseFees`:
+```
+if(IStable(_tigAsset).allowance(address(this), address(gov)) < _daoFeesPaid){
+            IStable(_tigAsset).approve(address(gov), type(uint).max);
+        }
+```
+
+
