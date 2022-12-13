@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "TradingLibrary.verifyPrice doesn't check oracle for stale price",
+  "issueId": 121,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/121"
+}
