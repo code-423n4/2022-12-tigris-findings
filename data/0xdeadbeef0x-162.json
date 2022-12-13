@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "2",
+  "title": "BondNFTs can revert when transferred",
+  "issueId": 162,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/162"
+}
