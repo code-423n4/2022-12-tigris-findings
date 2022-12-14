@@ -5,8 +5,9 @@
 |:------:|:----|:-------:|
 | [L&#x2011;01] | Missing zero address check in the constructor in `Trading.sol` and `TradingExtension.sol` | 3 |
 | [L&#x2011;02] | Unsafe ERC20 operations | 19 |
+| [L&#x2011;03] | Decimals() not part of ERC20 standard | 2 |
 
-Total: 22 instances over 2 issues
+Total: 24 instances over 3 issues
 
 # Non-critical
 
@@ -121,6 +122,26 @@ Lines of code:
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L652
 
 - https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/Trading.sol#L671
+
+### \[L-03\] Decimals() not part of ERC20 standard
+
+decimals() is not part of the official ERC20 standard and might fail for tokens that do not implement it. While in practice it is very unlikely, as usually most of the tokens implement it, this should still be considered as a potential issue. 
+
+File: `StableVault.sol`
+
+```solidity
+_amount*(10**(18-IERC20Mintable(_token).decimals()))
+```
+
+```solidity
+_output = _amount/10**(18-IERC20Mintable(_token).decimals());
+```
+
+Lines of code:
+
+- https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/StableVault.sol#L49
+
+- https://github.com/code-423n4/2022-12-tigris/blob/b2ebb8ea1def4927a747e7a185174892506540ab/contracts/StableVault.sol#L67
 
 
 # Non-critical
