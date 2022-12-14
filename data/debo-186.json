@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "debo",
+  "risk": "3",
+  "title": "SWC-107 Rentrancy using fallback CWE-841 Improper Enforcement of Behavioral Workflow",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/186"
+}
