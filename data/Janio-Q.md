@@ -17,6 +17,22 @@ The `listToken(...)` function does not validate the `_token` address.
 
 ---
 
+## `StableToken.setMinter` can add zero address as a minter
+
+```solidity
+    function setMinter(
+        address _address,
+        bool _status
+    ) 
+        public
+        onlyOwner()
+    {
+        isMinter[_address] = _status;
+    }
+```
+
+
+
 ## Functions in `TradingExtension` do not validate addresses
 
 File: [`TradingExtension.sol#L240-L272`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L240-L272)
