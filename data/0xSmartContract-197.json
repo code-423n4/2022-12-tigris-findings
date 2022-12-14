@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xSmartContract",
+  "risk": "2",
+  "title": "Missing ReEntrancy Guard to `mint` function",
+  "issueId": 197,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/197"
+}
