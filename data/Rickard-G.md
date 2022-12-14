@@ -5,7 +5,7 @@ Use a solidity version of at least 0.8.3 to get better struct packing and cheape
 Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper than `revert() / require()`.
 Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the call has a return value.
 
-There are instances of this issue:
+There are 22 instances of this issue:
 - [IGovNFT.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/interfaces/IGovNFT.sol#L3)
 - [ILayerZeroEndpoint.sol
 ](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/interfaces/ILayerZeroEndpoint.sol#L3)
