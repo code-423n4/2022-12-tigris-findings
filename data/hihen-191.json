@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "hihen",
+  "risk": "2",
+  "title": "A malicious or hacked owner/forwarder can steal assets in user wallets",
+  "issueId": 191,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/191"
+}
