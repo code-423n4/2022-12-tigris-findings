@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "BondNft.createLock doesn't check for 0 shares",
+  "issueId": 181,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/181"
+}
