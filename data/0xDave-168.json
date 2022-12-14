@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xDave",
+  "risk": "3",
+  "title": "tigUSD can be minted using a Reentrancy attack.",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/168"
+}
