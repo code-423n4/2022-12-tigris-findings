@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "3",
+  "title": "BondNFT.claim can be called several times to increase rewards amount and drain all funds",
+  "issueId": 182,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/182"
+}
