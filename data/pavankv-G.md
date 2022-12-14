@@ -2,7 +2,22 @@
 In Solidity 0.8+, there’s a default overflow check on unsigned integers. It’s possible to uncheck this in for-loops and save some gas at each iteration, but at the cost of some code readability, as this uncheck cannot be made inline.
 
 code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L220
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L284
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L292
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L300
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L325
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L78
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Position.sol#L304
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Position.sol#L296
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L53
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L67
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L78
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L95
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L200
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L252
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L258
+
 
 
 ## 2.x = x + y is cheaper than x += y :-
@@ -34,6 +49,7 @@ https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L43
 If a function modifier such as onlyOwner is used, the function will revert if a normal user tries to pay the function. Marking the function as payable will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are CALLVALUE(2),DUP1(3),ISZERO(3),PUSH2(3),JUMPI(10),PUSH1(3),DUP1(3),REVERT(0),JUMPDEST(1),POP(2), which costs an average of about 21 gas per call to the function, in addition to the extra deployment cost.
 
 code snippet:-
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L65
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L898
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L912
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L926
@@ -47,6 +63,7 @@ https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtensio
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L249
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L264
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L274
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Position.sol#L85
 
 ## 5.Reduce the size of error messages (Long revert Strings)
 
@@ -55,10 +72,15 @@ Revert strings that are longer than 32 bytes require at least one additional mst
 
 code snippet:-
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L877
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L21
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L155
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L185
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L209
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L210
+
 
 ## 6  Splitting require() statements that use && saves gas:-
-&& use two AND opcodes ,one AND consumes 3 gas means two AND opcode consumes 6 gas in require statements so to save gas use two require statements.
-
+&& use two AND opcodes ,one AND consumes 3 gas 
 code snippet:-
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/utils/TradingLibrary.sol#L116
 
