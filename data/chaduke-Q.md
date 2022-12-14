@@ -90,3 +90,7 @@ function _setReferral(
 
 ```
 
+QA10. https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableVault.sol#L44
+The ``deposit()`` function only works for tokens that have no more than 18 decimals. This needs to be documented. 
+
+
