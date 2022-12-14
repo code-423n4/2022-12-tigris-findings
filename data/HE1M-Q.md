@@ -35,4 +35,31 @@ if(IStable(_tigAsset).allowance(address(this), address(gov)) < _daoFeesPaid){
         }
 ```
 
+## No. 3
+Token id 0 is not handled during bridge minting.
+```
+function _bridgeMint(address to, uint256 tokenId) public {
+        require(msg.sender == address(this) || _msgSender() == owner(), "NotBridge");
+        require(tokenId <= 10000, "BadID");
+        for (uint i=0; i<assetsLength(); i++) {
+            userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+        }
+        super._mint(to, tokenId);
+    }
+```
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/GovNFT.sol#L64
+
+While in the older version, token id 0 was excluded.
+```
+function _bridgeMint(address to, uint256 tokenId) public {
+        require(msg.sender == address(this) || _msgSender() == owner(), "NotBridge");
+        require(tokenId <= 10000 && tokenId != 0, "BadID");
+        for (uint i=0; i<assetsLength(); i++) {
+            userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+        }
+        super._mint(to, tokenId);
+    }
+```
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/GovNFTBridged.sol#L48
+
 
