@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rvierdiiev",
+  "risk": "3",
+  "title": "When BondNft.claim is called before BondNft.release for the expired bond then totalShares should be decreased by bond shares amount",
+  "issueId": 183,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/183"
+}
