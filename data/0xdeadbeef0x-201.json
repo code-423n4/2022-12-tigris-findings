@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "2",
+  "title": "User of \"payable.transfer\" instead of \"call\" for proxy",
+  "issueId": 201,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/201"
+}
