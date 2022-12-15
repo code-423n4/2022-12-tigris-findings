@@ -18,7 +18,33 @@ IERC20(tigAsset).transfer(manager,amount) (contracts/BondNFT.sol#185)
 _burn(_id) (contracts/BondNFT.sol#157)
 delete _idToBond[_id] (contracts/BondNFT.sol#319)
 
-## Consider Warning & Error Compiled
+
+## Unused named returns
+While not consuming more gas with the Optimizer enabled: using both named returns and a return statement isn't necessary. Removing one of those can improve code clarity:
+
+BondNFT.sol
+returns(uint id) L62
+returns(uint amount, uint lockAmount, address asset, address _owner) L140
+returns(uint amount, address tigAsset) L171
+returns(uint amount) L199
+
+Trading.sol
+returns(uint256 _price, uint256 _spread) L29
+returns(uint _limitPrice, address _tigAsset) L49
+
+TradingExtension.sol
+_limitPreturns(uintrice, address _tigAsset) L93
+ returns(uint256 _price, uint256 _spread) L170
+
+/interfaces/IBONDnft.sol
+returns(uint id) L10
+returns(uint amount, address tigAsset) L23
+returns(uint amount) L28
+returns(uint amount, uint lockAmount, address asset, address _owner); L33
+
+
+
+## Consider Warning & Error Compilled
 
  TypeError: Invalid contract specified in override list: "IERC721".
   --> contracts/Position.sol:11:44:
