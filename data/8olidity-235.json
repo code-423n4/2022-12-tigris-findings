@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "Using `_transfer()` instead of `safeTransferFrom()` may cause the user's NFT to be frozen in a contract that does not support ERC721",
+  "issueId": 235,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/235"
+}
