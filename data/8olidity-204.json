@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "8olidity",
+  "risk": "2",
+  "title": "`initiateCloseOrder()` lacks judgment on `_asset` suspension",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/204"
+}
