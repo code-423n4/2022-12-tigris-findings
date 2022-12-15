@@ -93,4 +93,18 @@ function _setReferral(
 QA10. https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableVault.sol#L44
 The ``deposit()`` function only works for tokens that have no more than 18 decimals. This needs to be documented. 
 
+QA11. https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/PairsContract.sol#L139
+When we set ``_maxOi``, we need to check if existing ``longOi`` or ``shortOi`` have exceeded it or not.
+```
+function setMaxOi(uint256 _asset, address _tigAsset, uint256 _maxOi) external onlyOwner {
+        bytes memory _name  = bytes(_idToAsset[_asset].name);
+        require(_name.length > 0, "!Asset");
 
+        require(_idToOi[_asset][_tigAsset].longOi <= _idToOi[_asset][_tigAsset].maxOi || _idToOi[_asset][_tigAsset].maxOi == 0, "MaxLongOi");  // @audit
+
+                    require(_idToOi[_asset][_tigAsset].shortOi <= _idToOi[_asset][_tigAsset].maxOi || _idToOi[_asset][_tigAsset].maxOi == 0, "MaxShortOi"); // @audit
+            
+
+        _idToOi[_asset][_tigAsset].maxOi = _maxOi;
+    }
+```
