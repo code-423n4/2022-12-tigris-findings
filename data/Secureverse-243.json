@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Secureverse",
+  "risk": "2",
+  "title": "Via deposit() function user can deposit one token to contract and able to withdraw another type of token from contract that may cause some critical problem in future",
+  "issueId": 243,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/243"
+}
