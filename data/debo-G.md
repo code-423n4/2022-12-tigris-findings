@@ -59,3 +59,9 @@ mapping(address => mapping(address => uint)) public userDebt; // user => tigAsse
 URL: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L38
 If both fields are accessed in the same function, can save gas per access due to not having to recalculate the key and calculation's associated stack operations.
 userDebt and totalShares are both being used in the same functions mostly consider making them a struct instead.
+
+[G-06]
+Unsinged integers lower than 32 bytes are more costly because solidity automatically assigns 32 bytes minimum to unsigned integers. 
+e.g.  uint8 v, on line 73 of Trading.sol 
+URL: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L73
+remediation: use uint256 and then downcast.
