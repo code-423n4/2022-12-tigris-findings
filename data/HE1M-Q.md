@@ -62,4 +62,40 @@ function _bridgeMint(address to, uint256 tokenId) public {
 ```
 https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/GovNFTBridged.sol#L48
 
+## No. 4
+The `owner` variable is not used in the structure `Bond` during creating a lock. It is better to remove this variable from the structure.
+```
+function createLock(
+        address _asset,
+        uint _amount,
+        uint _period,
+        address _owner
+    ) external onlyManager() returns(uint id) {
+        require(allowedAsset[_asset], "!Asset");
+        unchecked {
+            uint shares = _amount * _period / 365;
+            uint expireEpoch = epoch[_asset] + _period;
+            id = ++totalBonds;
+            totalShares[_asset] += shares;
+            Bond memory _bond = Bond(
+                id,             // id
+                address(0),     // owner
+                _asset,         // tigAsset token
+                _amount,        // tigAsset amount
+                epoch[_asset],  // mint epoch
+                block.timestamp,// mint timestamp
+                expireEpoch,    // expire epoch
+                0,              // pending
+                shares,         // linearly scaling share of rewards
+                _period,        // lock period
+                false           // is expired boolean
+            );
+            _idToBond[id] = _bond;
+            _mint(_owner, _bond);
+        }
+        emit Lock(_asset, _amount, _period, _owner, id);
+    }
+```
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L71
+
 
