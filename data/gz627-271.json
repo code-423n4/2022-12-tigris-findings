@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "gz627",
+  "risk": "3",
+  "title": "The `baseFundingRate` of assets may exceed the `maxBaseFundingRate` thus breaking the protocol",
+  "issueId": 271,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/271"
+}
