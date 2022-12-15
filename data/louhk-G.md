@@ -1,4 +1,4 @@
-The vulnerability found in ```GovNFT.sol```
+## The vulnerability found in ```GovNFT.sol```
 
 The contract is using vulnerable function - _mint()
 
@@ -21,6 +21,7 @@ It seems that the smart contract does not check the ```tokenId``` in _mint funct
 It is suggested to implement ```require``` to check the validation of tokenId
 
 ---
+## Another Vulnerability found in ```GovNFTBridged.sol```
 
 The potential vulnerabilities can be found in below contract between line 48 to line 55
 
