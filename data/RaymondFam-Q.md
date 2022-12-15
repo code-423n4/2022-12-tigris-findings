@@ -205,3 +205,8 @@ function removeAsset(address _asset) external onlyOwner {
     assets[_assetsIndex] = assets[assets.length - 1];
     assets.pop();
 }  
+
+## Deprecated `initRefs()` in `Referrals.sol`
+As denoted in the comment, this function is deprecated. It should rightfully not be included in the contract because the logic entailed poses a great concern to the users who could have their referral efforts assigned to others designated by the owner who might have done this for monetary reason or due to compromised private key(s).
+
+The first for loop on [lines 70 - 72](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L70-L72) could have users' generated codes assigned to different address(es) whereas the second for loop on [lines 73 - 75](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L73-L75) could have all referred traders assigned to to different referral code(s).
