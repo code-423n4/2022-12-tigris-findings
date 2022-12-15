@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "SamGMK",
+  "risk": "3",
+  "title": "`StableVault` treats all the whiteListed tokens as the same.",
+  "issueId": 227,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/227"
+}
