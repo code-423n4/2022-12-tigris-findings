@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "KingNFT",
+  "risk": "3",
+  "title": "Incorrect calculation of new price while adding position",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/236"
+}
