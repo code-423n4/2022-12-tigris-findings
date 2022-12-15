@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Janio",
+  "risk": "2",
+  "title": "`_stableVault` allowances are never revoked",
+  "issueId": 242,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/242"
+}
