@@ -16,16 +16,11 @@ Checking arguments rather than the state variables `` _idToAsset[_asset].maxLeve
 function updateAssetLeverage(uint256 _asset, uint256 _minLeverage, uint256 _maxLeverage) external onlyOwner {
         bytes memory _name  = bytes(_idToAsset[_asset].name);
         require(_name.length > 0, "!Asset");
+        require(_minLeverage > 0 && _maxLeverage >= _minLeverage, "Wrong leverage values");
 
-        if (_maxLeverage > 0) {
-            _idToAsset[_asset].maxLeverage = _maxLeverage;
-        }
-        if (_minLeverage > 0) {
-            _idToAsset[_asset].minLeverage = _minLeverage;
-        }
-        
-        require(_idToAsset[_asset].maxLeverage >= _idToAsset[_asset].minLeverage, "Wrong leverage values");
-    }
 
+       _idToAsset[_asset].maxLeverage = _maxLeverage;
+       _idToAsset[_asset].minLeverage = _minLeverage;
+}
 
 ``
