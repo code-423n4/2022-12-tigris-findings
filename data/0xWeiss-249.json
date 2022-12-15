@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xWeiss",
+  "risk": "2",
+  "title": "Contract MockEndPoint.sol has payable fucntions and no way to withdraw ether",
+  "issueId": 249,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/249"
+}
