@@ -1,4 +1,4 @@
-## The vulnerability found in ```GovNFT.sol```
+## 1. The vulnerability found in ```GovNFT.sol```
 
 The contract is using vulnerable function - _mint()
 
@@ -21,7 +21,8 @@ It seems that the smart contract does not check the ```tokenId``` in _mint funct
 It is suggested to implement ```require``` to check the validation of tokenId
 
 ---
-## Another Vulnerability found in ```GovNFTBridged.sol```
+
+## 2. Another Vulnerability found in ```GovNFTBridged.sol```
 
 The potential vulnerabilities can be found in below contract between line 48 to line 55
 
@@ -46,7 +47,7 @@ The attacker may call the function like this:
  _bridgeMint(attacker, 1000000);
 ```
 
-Solution:
+### Solution
 For Line#49
 ```
 require(msg.sender == address(this) || _msgSender() == owner() && tokenId >= 1 && tokenId <= 10000, "NotBridge");
@@ -58,10 +59,13 @@ Ensure tokenId is  greater than or equal to 1 and less than or equal to 10000
 require(tokenId >= 1 && tokenId <= 10000 && tokenId != 0, "BadID");
 ```
 ---
-## Another Vulnerability found in ```StableToken.sol```
 
+## 3. Another Vulnerability found in ```StableToken.sol```
+
+The contract is using vulnerable function - mintFor()
 https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableToken.sol#L24-#L33
 
+Also, the mintFor() called onlyMinter() the onlyMinter() function as below:
 ```
     modifier onlyMinter() {
         require(isMinter[_msgSender()], "!Minter");
@@ -69,4 +73,14 @@ https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableToken.sol
     }
 ```
 
-It seems that the modifier is only need the caller to be a minter. It is not for preventing other accounts to call `mintFor` and `burnFrom` functions. It means that the attacker may able to manipulate the `mintFor` and `burnFrom` functions.
+It seems that the modifier is only check the caller is the minter. It is not for preventing other accounts to call `mintFor` and `burnFrom` functions. It means that the attacker may able to manipulate the `mintFor` and `burnFrom` functions.
+
+### Solution
+The require() may need to implement in the mintFor function before calling _mint(account,amount):
+
+Example:
+```
+require(account == msg.sender, "Invalid account");
+
+_mint(account, amount);
+```
