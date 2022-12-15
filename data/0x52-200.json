@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0x52",
+  "risk": "3",
+  "title": "Trading._checkDelay is not sufficient to prevent profiting when there are multiple valid prices for an asset",
+  "issueId": 200,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/200"
+}
