@@ -57,3 +57,16 @@ Ensure tokenId is  greater than or equal to 1 and less than or equal to 10000
 ```
 require(tokenId >= 1 && tokenId <= 10000 && tokenId != 0, "BadID");
 ```
+---
+## Another Vulnerability found in ```StableToken.sol```
+
+https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableToken.sol#L24-#L33
+
+```
+    modifier onlyMinter() {
+        require(isMinter[_msgSender()], "!Minter");
+        _;
+    }
+```
+
+It seems that the modifier is only need the caller to be a minter. It is not for preventing other accounts to call `mintFor` and `burnFrom` functions. It means that the attacker may able to manipulate the `mintFor` and `burnFrom` functions.
