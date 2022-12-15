@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "SamGMK",
+  "risk": "3",
+  "title": "StableVault uses a naive permit, this might lead to user funds being lost.",
+  "issueId": 229,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/229"
+}
