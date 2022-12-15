@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "SamGMK",
+  "risk": "2",
+  "title": "check account balance before and after transfers for Fee-On-Transfer discrepancies",
+  "issueId": 233,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/233"
+}
