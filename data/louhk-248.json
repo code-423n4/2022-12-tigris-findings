@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "louhk",
+  "risk": "2",
+  "title": "Potential reentrancy vulnerability in StableVault.sol",
+  "issueId": 248,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/248"
+}
