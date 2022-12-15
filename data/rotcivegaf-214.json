@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rotcivegaf",
+  "risk": "3",
+  "title": "Several vulnerability points in `StableVault`",
+  "issueId": 214,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/214"
+}
