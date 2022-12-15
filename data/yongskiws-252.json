@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "yongskiws",
+  "risk": "2",
+  "title": "consider ReentrancyGuard in contract StableVault for future reentrancy attacks",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/252"
+}
