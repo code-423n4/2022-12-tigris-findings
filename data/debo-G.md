@@ -58,4 +58,4 @@ line 38
 mapping(address => mapping(address => uint)) public userDebt; // user => tigAsset => amount
 URL: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L38
 If both fields are accessed in the same function, can save gas per access due to not having to recalculate the key and calculation's associated stack operations.
-allowedAssets and totalLocked are both being used in the same functions mostly consider making them a struct instead.
+userDebt and totalShares are both being used in the same functions mostly consider making them a struct instead.
