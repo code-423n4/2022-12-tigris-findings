@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0x52",
+  "risk": "2",
+  "title": "Trading#_handleDeposit won't work with USDT and other tokens that require zero allowance before approval",
+  "issueId": 241,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/241"
+}
