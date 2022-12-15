@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "gz627",
+  "risk": "3",
+  "title": "Chainlink price feed can be set to address(0) or EOA",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/270"
+}
