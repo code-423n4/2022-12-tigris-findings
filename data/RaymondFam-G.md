@@ -1,3 +1,22 @@
+## Unneeded for loop
+The for loop in the code block below is unneeded and may be refactored as follows to save gas:
+
+[File: BondNFT.sol#L217-L226](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L217-L226)
+
+```diff
+        unchecked {
+            uint aEpoch = block.timestamp / DAY;
+            if (aEpoch > epoch[_tigAsset]) {
+-                for (uint i=epoch[_tigAsset]; i<aEpoch; i++) {
+-                    epoch[_tigAsset] += 1;
+-                    accRewardsPerShare[_tigAsset][i+1] = accRewardsPerShare[_tigAsset][i];
+-               }
++          accRewardsPerShare[_tigAsset][aEpoch] = accRewardsPerShare[_tigAsset][epoch[_tigAsset]];
++          epoch[_tigAsset] = aEpoch;
+            }
+            accRewardsPerShare[_tigAsset][aEpoch] += _amount * 1e18 / totalShares[_tigAsset];
+        }
+```
 ## Split require statements using &&
 Instead of using the `&&` operator in a single require statement to check multiple conditions, using multiple require statements with 1 condition per require statement will save 3 GAS per `&&`.
 
