@@ -29,3 +29,44 @@ There are 22 instances of this issue:
 - [StableVault.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L2)
 - [Lock.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol#L2)
 - [BondNFT.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L2)
+
+# <X> += <Y> COSTS MORE GAS THAN <X> = <X> + <Y> FOR STATE VARIABLES
+contracts / [BondNFT.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol)
+```
+68: totalShares[_asset] += shares;
+115: totalShares[bond.asset] += shares-bond.shares;
+117: _bond.amount += _amount;
+119: _bond.period += _period;
+152: amount += _claimAmount;
+183: bondPaid[_id][bond.asset] += amount;
+221: epoch[_tigAsset] += 1;
+333: userDebt[from][bond.asset] += bond.pending;
+334: bondPaid[_id][bond.asset] += bond.pending;
+```
+contracts / [GovNFT.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol)
+```
+52: counter += 1;
+54: userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+68: userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+79: userDebt[owner][assets[i]] += accRewardsPerNFT[assets[i]];
+96: userDebt[from][assets[i]] += accRewardsPerNFT[assets[i]];
+99: userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+278: userPaid[_msgsender][_tigAsset] += amount;
+290: accRewardsPerNFT[_tigAsset] += _amount/totalSupply();
+```
+contracts / [GovNFTBridged.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFTBridged.sol)
+```
+60: userDebt[owner][assets[i]] += accRewardsPerNFT[assets[i]];
+74: userDebt[from][assets[i]] += accRewardsPerNFT[assets[i]];
+77: userPaid[to][assets[i]] += accRewardsPerNFT[assets[i]];
+234: userPaid[_msgsender][_tigAsset] += amount;
+```
+contracts / [Lock.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol)
+```
+73: totalLocked[_asset] += _amount;
+```
+contracts / [PairsContract.sol](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol)
+```
+156: _idToOi[_asset][_tigAsset].longOi += _amount;
+176: _idToOi[_asset][_tigAsset].shortOi += _amount;
+```
