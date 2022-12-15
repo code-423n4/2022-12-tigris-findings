@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ali_shehab",
+  "risk": "2",
+  "title": "  The current implementation does not support Fee on transfer token",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/228"
+}
