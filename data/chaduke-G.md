@@ -9,3 +9,23 @@ function updateAssetLeverage(uint256 _asset, uint256 _minLeverage, uint256 _maxL
         _idToAsset[_asset].minLeverage = _minLeverage;
   }
 ```
+
+G2. https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/PairsContract.sol#L73-L85
+Checking arguments rather than the state variables `` _idToAsset[_asset].maxLeverage >= _idToAsset[_asset].minLeverage`` can save gas:
+``
+function updateAssetLeverage(uint256 _asset, uint256 _minLeverage, uint256 _maxLeverage) external onlyOwner {
+        bytes memory _name  = bytes(_idToAsset[_asset].name);
+        require(_name.length > 0, "!Asset");
+
+        if (_maxLeverage > 0) {
+            _idToAsset[_asset].maxLeverage = _maxLeverage;
+        }
+        if (_minLeverage > 0) {
+            _idToAsset[_asset].minLeverage = _minLeverage;
+        }
+        
+        require(_idToAsset[_asset].maxLeverage >= _idToAsset[_asset].minLeverage, "Wrong leverage values");
+    }
+
+
+``
