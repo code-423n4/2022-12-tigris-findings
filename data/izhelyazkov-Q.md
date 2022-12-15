@@ -9,3 +9,6 @@ leaving all of the `onlyOwner` functions in the following contracts uncallable:
 `contracts/PairsContract.sol`
 `contracts/Referrals.sol`
 `contracts/TradingExtension.sol`
+Recommended Mitigation Steps
+
+Either reimplement the function to disable `renounceOwnership` or clearly specify if it is part of the contract design.
