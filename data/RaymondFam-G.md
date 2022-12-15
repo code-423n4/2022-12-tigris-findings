@@ -1,5 +1,5 @@
-## Unneeded for loop
-The for loop in the code block below is unneeded and may be refactored as follows to save gas:
+## Unneeded for loop in `distribute()` of `BondNFT.sol`
+The for loop in the code block below is unneeded and may be refactored as follows to save both deployment and function call gas:
 
 [File: BondNFT.sol#L217-L226](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L217-L226)
 
@@ -40,6 +40,17 @@ As an example, the instance below may be refactored as follows:
 -            if (trade.direction && trade.orderType == 1) {
 +            if (!(!trade.direction || trade.orderType != 1)) {
 ```
+## Conditional checks on `addAsset()` of `BondNFT.sol`
+The first conditional check of the require statement, `assets.length == 0` is only used once for the first element added. Consider having the code line refactored as follows to save gas on both deployment and function call:
+
+[File: BondNFT.sol#L350](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L350) 
+
+```diff
+-        require(assets.length == 0 || assets[assetsIndex[_asset]] != _asset, "Already added");
++        require(assetsIndex[_asset] == 0, "Already added");
+```
+Note: Removing `assets.length == 0` and keeping `assets[assetsIndex[_asset]] != _asset` would cause function revert for the first element added due to accessing an element in an empty array.
+
 ## Use storage instead of memory for structs/arrays
 A storage pointer is cheaper since copying a state struct in memory would incur as many SLOADs and MSTOREs as there are slots. In another words, this causes all fields of the struct/array to be read from storage, incurring a Gcoldsload (2100 gas) for each field of the struct/array, and then further incurring an additional MLOAD rather than a cheap stack read. As such, declaring the variable with the storage keyword and caching any fields that need to be re-read in stack variables will be much cheaper, involving only Gcoldsload for all associated field reads. Read the whole struct/array into a memory variable only when it is being returned by the function, passed into a function that requires memory, or if the array/struct is being read from another memory array/struct.
 
@@ -55,6 +66,23 @@ Here are some of the instances entailed:
 270:         IPosition.Trade memory _trade = position.trades(_id);
 ...
 ```
+## Unneeded `delete`
+In `StableVault.sol`, the `delete` code line in `delistToken()` is unnecessary because such execution is simply setting the mapping associated with this delisted token to its default integer value, i.e. 0. It will not remove this particular mapping from the storage.
+
+Consider having `delistToken() refactored as follows to save gas on both deplyment and function call:
+
+[File: StableVault.sol#L89-L96](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L89-L96)
+
+```diff
+    function delistToken(address _token) external onlyOwner {
+        require(allowed[_token], "Not added");
+        tokenIndex[tokens[tokens.length-1]] = tokenIndex[_token];
+        tokens[tokenIndex[_token]] = tokens[tokens.length-1];
+-        delete tokenIndex[_token];
+        tokens.pop();
+        allowed[_token] = false;
+    }
+```   
 ## Non-strict inequalities are cheaper than strict ones
 In the EVM, there is no opcode for non-strict inequalities (>=, <=) and two operations are performed (> + = or < + =).
 
