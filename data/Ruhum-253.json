@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Ruhum",
+  "risk": "3",
+  "title": "underflow in `Lock.release()` can lock up funds",
+  "issueId": 253,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/253"
+}
