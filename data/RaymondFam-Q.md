@@ -195,3 +195,13 @@ Additionally, inside each contract, library or interface, use the following orde
 type declarations, state variables, events, modifiers, functions
 
 Consider adhering to the above guidelines for all contract instances entailed.
+
+## Missing `removeAsset()` in `BondNFT.sol`
+The check statement of `addAsset()` requires either `assets` is an empty array or `_asset` is not the first element of `assets`. However, this will not prevent the owner from accidentally adding a wrong `_asset`. Consider adding `removeAsset()` associated with a function logic below to the contract to cater for such unforeseen incident. This will also allow removing any obsolete or unwanted `_asset` in the future:
+
+```
+function removeAsset(address _asset) external onlyOwner {
+    assetsIndex[assets[assets.length - 1]] = assetsIndex[_asset];
+    assets[_assetsIndex] = assets[assets.length - 1];
+    assets.pop();
+}  
