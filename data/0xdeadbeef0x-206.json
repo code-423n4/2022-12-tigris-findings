@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xdeadbeef0x",
+  "risk": "3",
+  "title": "Traders unable to close their position if StableVault or its tokens are blacklisted.",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/206"
+}
