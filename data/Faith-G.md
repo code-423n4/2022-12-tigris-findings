@@ -107,7 +107,7 @@ function addAsset(
 }
 ```
 
-However, this mapping is not used anywhere else in the code. Here are all the instances where it should be used (all in the `PairsContract` contract). All the instances are the same, so I'll show one example and just list the other functions out.
+However, this mapping is not used anywhere else in the code. Here are all the instances where it should be used to save gas (all in the `PairsContract` contract). All the instances are the same, so I'll show one example and just list the other functions out.
 
 Example - [`updateAssetLeverage()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L73):
 ```
