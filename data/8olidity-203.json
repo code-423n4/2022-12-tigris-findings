@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "8olidity",
+  "risk": "3",
+  "title": "`StableVault::deposit()` lacks judgment on token price, when the market fluctuates, arbitrage can be used",
+  "issueId": 203,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/203"
+}
