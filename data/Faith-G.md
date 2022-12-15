@@ -35,6 +35,9 @@ function setReferred(address _referredTrader, bytes32 _hash) external onlyProtoc
 
 Remove this check to save gas.
 
+- [TradingExtension](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L190-L202)
+- [Referral](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L32-L41)
+
 ### Instance two
 
 The `executeLimitOrder()` function in the `Position` contract checks that the order isn't a market order (type 0):
@@ -73,9 +76,12 @@ function executeLimitOrder(
 
 Remove this check to save gas.
 
+- [Position](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Referrals.sol#L32-L41)
+- [Trading](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L495)
+
 ### Instance three
 
-When adding an asset to the `PairsContract` contract, `addAsset()` is called. This function, amongst other things, will set a boolean in a mapping to `true` to signify that an asset with this ID is allowed to be used:
+When adding an asset to the `PairsContract` contract, `addAsset()` is called. This function, amongst other things, [will set a boolean in a mapping to `true` to signify that an asset with this ID is allowed to be used](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L54):
 
 ```
 function addAsset(
@@ -103,7 +109,7 @@ function addAsset(
 
 However, this mapping is not used anywhere else in the code. Here are all the instances where it should be used (all in the `PairsContract` contract). All the instances are the same, so I'll show one example and just list the other functions out.
 
-Example - `updateAssetLeverage()`:
+Example - [`updateAssetLeverage()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L73):
 ```
 function updateAssetLeverage(
     uint256 _asset,
@@ -120,10 +126,10 @@ function updateAssetLeverage(
 
 Remaining instances:
 
-- `setAssetBaseFundingRate()`
-- `updateAssetFeeMultiplier()`
-- `pauseAsset()` 
-- `setMaxOi()`
+- `setAssetBaseFundingRate(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L92)`
+- `updateAssetFeeMultiplier(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L104)`
+- `pauseAsset(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L115)` 
+- `setMaxOi(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L139)`
 
 ### Instance four
 
@@ -145,6 +151,9 @@ function _handleCloseFees(/* [ ... ] */) internal returns (uint payout_) {
 
 As seen above, `_handleCloseFees` simply uses the stack variable `_daoFeesPaid` to distribute the required number of tokens. `_handleOpenFees()` also has this variable, but does not use it. Making a function call to `balanceOf()` is more expensive and thus gas can be saved here by using `_daoFeesPaid` in `_handleOpenFees()` as well.
 
+- [_handleOpenFees()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L749)
+- [_handleCloseFees()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L808)
+
 ### Instance five
 
 In the `StableVault` contract, the `depositWithPermit()` function allows a user to pass in a `_permitMax` boolean:
@@ -164,6 +173,8 @@ In the `StableVault` contract, the `depositWithPermit()` function allows a user 
 ```
 
 This variable is unnecessary. If a user wants to approve the max amount, they can just set the `_amount` variable to `type(uint).max` themselves. Remove this to save gas.
+
+- [StableVault](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol#L53)
 
 # Repeated unnecessary calls to `approve()`
 
@@ -191,6 +202,8 @@ The `_tigAsset` in question should be approved whenever it was created and denot
 
 As it stands currently, any time an order is closed (i.e `_handleCloseFees()` is called), the `approve()` function is called. This is unnecessary and a lot of gas would be saved by calling it once.
 
+- [_handleCloseFees()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L807)
+
 ### Instance two
 
 The `Lock` contract is used whenever a user wants to lock their funds in for bonds. The `claimGovFees()` function is called pretty often:
@@ -211,6 +224,8 @@ function claimGovFees() public {
 ```
 
 The call to `approve()` on the second last line can be done just once on initialization of the assets themselves (one `approve()` call for each asset). As it stands, a lot of gas is being used for every single approve here.
+
+- [claimGovFees()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol#L110)
 
 # Gas-expensive checks should come first before others
 
@@ -246,6 +261,8 @@ function addToPosition(
 
 See comments above. The two checks can be moved to before the gas expensive check to save on gas.
 
+- [addToPosition()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L271-L273)
+
 ### Instance two
 
 In the `Trading` contract, inside `initiateLimitOrder()`:
@@ -278,6 +295,8 @@ function initiateLimitOrder(
 
 I've added comments in the code excerpt to show the most gas-efficient way to re-order these checks.
 
+- [initiateLimitOrder()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L325-L328)
+
 ### Instance three
 
 In the `Trading` contract, inside `executeLimitOrder()`:
@@ -293,27 +312,21 @@ function executeLimitOrder(
         // Do these checks before calling _handleOpenFees() and getVerifiedPrice()
         if (trade.orderType == 0) revert("5");
 
-        if (
-            _price >
-            trade.price +
-                (trade.price * limitOrderPriceRange) /
-                DIVISION_CONSTANT ||
-            _price <
-            trade.price -
-                (trade.price * limitOrderPriceRange) /
-                DIVISION_CONSTANT
-        ) revert("6"); //LimitNotMet
+        // Two more sets of checks come immediately after this, they should also
+        // be moved up
 
         // [ ... ]
 }
 ```
 
-This function calls `_handleOpenFees()` and `tradingExtension.getVerifiedPrice()` before running two checks that can potentially revert. The checks should be moved before the function calls to save gas.
+This function calls `_handleOpenFees()` and `tradingExtension.getVerifiedPrice()` before running a few sets of checks that can potentially revert. The checks should be moved before the function calls to save gas.
+
+- [executeLimitOrder()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L493-L507)
 
 # State variables can be made immutable to save gas
 
-1. In the `NFTSale` contract, both the `nft` and `token` state variables can be made immutable.
-2. In the `Trading` contract, the `pairsContract`, `position`, and `gov` state variables can be made immutable.
+1. [In the `NFTSale` contract, both the `nft` and `token` state variables can be made immutable.](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/NFTSale.sol#L21-L22)
+2. [In the `Trading` contract, the `pairsContract`, `position`, and `gov` state variables can be made immutable.](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L121-L123)
 
 # Check for `amount == 0` before calling `transfer()` or `transferFrom()`
 
@@ -321,7 +334,8 @@ There are instances in the code where a 0 amount of tokens is transferred. Gas c
 
 In the `BondNFT` contract:
 
-- `_claimDebt()`
+- [`claim()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L185)
+- [`_claimDebt()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L202)
 
 In the `Lock` contract:
 
@@ -333,3 +347,6 @@ In the `Lock` contract:
 There is one internal function that is only called once. The function call itself uses up some gas, so this function call can be inlined.
 
 Specifically, the function is the `_mint()` internal function in the `BondNFT` contract. The only call site is in the `createLock()` function in the same contract.
+
+- [_mint() function](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L306)
+- [_mint() callsite](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L83)
