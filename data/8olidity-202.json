@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "8olidity",
+  "risk": "3",
+  "title": "The `signature` in `trading` lacks a `nonce` value and can be replayed",
+  "issueId": 202,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/202"
+}
