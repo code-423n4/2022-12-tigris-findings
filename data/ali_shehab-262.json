@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ali_shehab",
+  "risk": "3",
+  "title": "totalLocked[_asset] is not increased when extendLock is called",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/262"
+}
