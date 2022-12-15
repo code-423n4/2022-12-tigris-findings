@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "stealthyz",
+  "risk": "2",
+  "title": "Not checking the return value of a ERC20 token 'transfer()' function",
+  "issueId": 217,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/217"
+}
