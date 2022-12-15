@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xbepresent",
+  "risk": "2",
+  "title": "Lock.sol::totalLocked public variable is not updated in the Lock.sol::extendLock() function.",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/264"
+}
