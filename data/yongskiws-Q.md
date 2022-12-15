@@ -7,7 +7,7 @@ To avoid unexpected behavior in the future (be it for the solution or for a fork
 
 Consider always moving the state-changes before the external calls.
 
-While here, there’s no real impact, it’s still a bad practice (_safeMint ,transferFrom, has a callback, and a state change is occurring just after the call, albeit under certain conditions and without any thinkable impact here):
+While here, there’s no real impact, it’s still a bad practice ( has a callback, and a state change is occurring just after the call, albeit under certain conditions and without any thinkable impact here):
 
  _safeMint(_mintTrade.account, newTokenID);  position.sol 148
 
