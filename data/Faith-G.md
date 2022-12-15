@@ -126,10 +126,10 @@ function updateAssetLeverage(
 
 Remaining instances:
 
-- `setAssetBaseFundingRate(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L92)`
-- `updateAssetFeeMultiplier(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L104)`
-- `pauseAsset(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L115)` 
-- `setMaxOi(https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L139)`
+- [setAssetBaseFundingRate()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L92)
+- [updateAssetFeeMultiplier()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L104)
+- [pauseAsset()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L115)
+- [setMaxOi()](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/PairsContract.sol#L139)
 
 ### Instance four
 
@@ -339,8 +339,8 @@ In the `BondNFT` contract:
 
 In the `Lock` contract:
 
-- `claim()`
-- `claimDebt()`
+- [`claim()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol#L34)
+- [`claimDebt()`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Lock.sol#L47)
 
 # Internal functions called only once can be inlined
 
