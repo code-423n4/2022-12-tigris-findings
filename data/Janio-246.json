@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Janio",
+  "risk": "3",
+  "title": "The `_handleDeposit` function burns the whole contract's balance for `tigAsset` token",
+  "issueId": 246,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/246"
+}
