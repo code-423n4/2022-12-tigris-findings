@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xhacksmithh",
+  "risk": "2",
+  "title": "deposit() function of Contract StableVault.sol can be bypass using USDT token and User able deposit one token and withdraw another type, causing some critical problem in future",
+  "issueId": 210,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/210"
+}
