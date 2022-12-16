@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ayeslick",
+  "risk": "2",
+  "title": "Call to the claim function will fail when called from the release function",
+  "issueId": 452,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/452"
+}
