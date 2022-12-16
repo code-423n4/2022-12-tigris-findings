@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "kwhuo68",
+  "risk": "",
+  "title": "Proxy approval can be done for address without fallback or with malicious fallback",
+  "issueId": 620,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/620"
+}
