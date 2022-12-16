@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "__141345__",
+  "risk": "2",
+  "title": "`_checkOwner()` fails for approved operators",
+  "issueId": 401,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/401"
+}
