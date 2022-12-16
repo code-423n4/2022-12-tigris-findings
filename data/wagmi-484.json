@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "wagmi",
+  "risk": "",
+  "title": "Rounding down calculation in StableVault.withdraw() can result to loss of funds",
+  "issueId": 484,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/484"
+}
