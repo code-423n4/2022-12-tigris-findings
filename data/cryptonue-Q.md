@@ -65,6 +65,41 @@ For example the `allowedAsset` mapping is being used in many contracts, like `Bo
 
 It's best to have a parent storage contract to store this data.
 
+# [L-06] USE SAFETRANSFER/SAFETRANSFERFROM CONSISTENTLY INSTEAD OF TRANSFER/TRANSFERFROM
+
+It is good to add a require() statement that checks the return value of token transfers or to use something like OpenZeppelin’s safeTransfer/safeTransferFrom unless one is sure the given token reverts in case of a failure. Failure to do so will cause silent failures of transfers and affect token accounting in contract.
+
+```solidity
+File: BondNFT.sol
+216:         IERC20(_tigAsset).transferFrom(_msgSender(), address(this), _amount);
+
+File: GovNFT.sol
+289:         try IERC20(_tigAsset).transferFrom(_msgSender(), address(this), _amount) {
+290:             accRewardsPerNFT[_tigAsset] += _amount/totalSupply();
+291:         } catch {
+292:             return;
+293:         }
+
+File: GovNFTBridged.sol
+240:         try IERC20(_tigAsset).transferFrom(_msgSender(), address(this), _amount) {
+241:             accRewardsPerNFT[_tigAsset] += _amount/totalSupply();
+242:         } catch {
+243:             return;
+244:         }
+
+File: Lock.sol
+72:         IERC20(_asset).transferFrom(msg.sender, address(this), _amount);
+90:         IERC20(_asset).transferFrom(msg.sender, address(this), _amount);
+
+File: NFTSale.sol
+43:         token.transferFrom(msg.sender, owner(), _tokenAmount);
+
+File: StableVault.sol
+46:         IERC20(_token).transferFrom(_msgSender(), address(this), _amount);
+
+File: Trading.sol
+651:             IERC20(_marginAsset).transferFrom(_trader, address(this), _margin/_marginDecMultiplier);
+```
 
 # [N-01] Not using named import
 
@@ -111,7 +146,7 @@ File: Trading.sol
 628: }
 ```
 
-# [N-03] Use latest solidity version
+# [N-03] USE A MORE RECENT VERSION OF SOLIDITY
 
 # [N-04] Inconsistent Private constant
 
