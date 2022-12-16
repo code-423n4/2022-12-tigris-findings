@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "carlitox477",
+  "risk": "2",
+  "title": "BondNFT#extendLock force a user to extend the bond at least for current bond.period",
+  "issueId": 359,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/359"
+}
