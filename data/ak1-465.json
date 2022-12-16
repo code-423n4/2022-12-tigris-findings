@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "2",
+  "title": "Referrals.sol : Check for _codeOwners and _referredA is missing",
+  "issueId": 465,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/465"
+}
