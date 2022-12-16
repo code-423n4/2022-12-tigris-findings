@@ -122,3 +122,11 @@ File: StableToken.sol [Line 4](https://github.com/code-423n4/2022-12-tigris/blob
 ```solidity
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 ```
+
+## 9. Unused imports
+
+Contracts that are imported and not used anywhere in the code are most likely an accident due to incomplete refactoring. Such imports can lead to confusion by readers.
+
+Here is an instance of this issue:
+
+File: `Trading.sol` [Line 8](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L8)
