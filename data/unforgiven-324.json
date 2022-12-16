@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "in _handleOpenFees() early DAO fees won't get distributed because there is no spending approval for gov contract",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/324"
+}
