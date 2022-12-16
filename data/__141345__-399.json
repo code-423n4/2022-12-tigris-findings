@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "__141345__",
+  "risk": "3",
+  "title": "BondNFT `totalShares` need to exclude expired portion",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/399"
+}
