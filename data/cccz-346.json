@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "cccz",
+  "risk": "2",
+  "title": "Global gas fees may cause cross-chain messages to fail, which can cause NFT to get stuck",
+  "issueId": 346,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/346"
+}
