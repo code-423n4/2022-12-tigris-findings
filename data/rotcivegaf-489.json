@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rotcivegaf",
+  "risk": "",
+  "title": "Possibly reentrancy attacks in `mint` function",
+  "issueId": 489,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/489"
+}
