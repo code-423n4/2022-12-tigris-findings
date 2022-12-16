@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "jesusrod15",
+  "risk": "",
+  "title": "IERC20.transfer does not support all ERC20 token",
+  "issueId": 631,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/631"
+}
