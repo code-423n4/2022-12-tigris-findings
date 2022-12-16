@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "TradingExtension.sol: Correct price value is not used in `_limitClose` function.",
+  "issueId": 467,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/467"
+}
