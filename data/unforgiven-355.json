@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "3",
+  "title": "Function modifyShortOi() and modifyLongOi() can revert when subtracting because of underflow and it would cause most of the logics of Trading contract to revert too",
+  "issueId": 355,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/355"
+}
