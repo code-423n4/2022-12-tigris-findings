@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "bin2chen",
+  "risk": "2",
+  "title": "_closePosition() can have a profit greater than maxWinPercent",
+  "issueId": 332,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/332"
+}
