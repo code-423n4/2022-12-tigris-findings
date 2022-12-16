@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "",
+  "title": "Protocol does not handle the tokens correctly that has decimal value more than 18",
+  "issueId": 536,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/536"
+}
