@@ -1,0 +1,5 @@
+### Utilizing warm access may save substantial amount of gas
+Accessing cold storage costs a lot of gas (2100). When data is access only to read, it is better to use warm access and cach the data in function. Example of function that may be optimized this way is function `distribute(...)` ([here](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L211-L228)), where array `epoch` is accessed multiple times for read-only purpose.
+
+### Removing unused data from storage may save gas
+The list `tokens` in contract [StableVolt](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/StableVault.sol) does not have any real use case. It is only accessed to update it. Storing such array, which does not have any utility consumes unnecessary gas.
