@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "yixxas",
+  "risk": "2",
+  "title": "Use of depreciated chainlink price feed can lead to malfunction of the protocol",
+  "issueId": 284,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/284"
+}
