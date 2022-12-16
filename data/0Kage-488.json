@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "",
+  "title": "Adding to an existing position results in leakage of margin in stable vault",
+  "issueId": 488,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/488"
+}
