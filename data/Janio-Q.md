@@ -3,7 +3,6 @@
 The `listToken(...)` function does not validate the `_token` address.
 
 
-
 ```solidity
     function listToken(address _token) external onlyOwner {
         require(!allowed[_token], "Already added");
@@ -112,3 +111,29 @@ File: [`TradingExtension.sol#L35`](https://github.com/code-423n4/2022-12-tigris/
 
 **Recommendation:** Consider validating `_stable` and `_trading` addresses and emitting event for state variables changes.
 
+## The function `Lock.release` don't check for the owner of the asset 
+
+The function `Lock.release` don't check if the `msg.sender` is the owner of the asset of id `_id`. Therefore, anyone can trye to release the bond. However, it calls `BondNFT.release` which checks if the releaser is the owner (`if (_releaser != bond.owner) {` ). But it lets the `_releaser` release the bond if the `bond.expireEpoch + 7` is equals or bigger than `epoch[bond.asset]`. It then calls `BondNFT.claim`, pasing `bond.owner` as the owner, which will succeed. A third party could, then, release the bond for his owner, when that should be done only by the owner itself.
+
+[`Lock.sol#L98`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Lock.sol#L98)
+
+```solidity
+file: Lock.sol
+ function release( 
+     ...
+        (uint amount, uint lockAmount, address asset, address _owner) = bondNFT.release(_id, msg.sender);
+     ...
+ }
+```
+
+[`BondNFT.sol#L137`](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L137)
+```solidity
+file: BondNFT.sol
+function release(
+    ...
+    (uint256 _claimAmount,) = claim(_id, bond.owner);
+    ...
+}
+```
+    
+**Recommendation:** Consider checking if the `msg.sender` is the `owner` of the asset, on `Lock.release` before calling `bondNFT.release`
