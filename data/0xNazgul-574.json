@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xNazgul",
+  "risk": "",
+  "title": "[NAZ-H1] Reentrancy From Use of `_safeMint()`",
+  "issueId": 574,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/574"
+}
