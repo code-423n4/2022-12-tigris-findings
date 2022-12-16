@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Deivitto",
+  "risk": "",
+  "title": "Margin can't be totally removed in `removeMargin`",
+  "issueId": 583,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/583"
+}
