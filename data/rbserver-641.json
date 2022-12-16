@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rbserver",
+  "risk": "",
+  "title": "Compromised or malicious owner of `Trading` contract can set fees to be bigger than 100% for blocking users from taking important trading actions, such as initiating closing position",
+  "issueId": 641,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/641"
+}
