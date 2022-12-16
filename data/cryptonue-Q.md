@@ -1,10 +1,35 @@
-# [L-01] NO TRANSFER OWNERSHIP PATTERN
+# [L-01] BaseFundingRate can be over MaxFundingRate
+
+When adding addAsset, no check if baseFundingRate is below or equal MaxFundingRate
+```solidity
+File: PairsContract.sol
+48:     function addAsset(uint256 _asset, string memory _name, address _chainlinkFeed, uint256 _minLeverage, uint256 _maxLeverage, uint256 _feeMultiplier, uint256 _baseFundingRate) external onlyOwner {
+49:         bytes memory _assetName  = bytes(_idToAsset[_asset].name);
+50:         require(_assetName.length == 0, "Already exists");
+51:         require(bytes(_name).length > 0, "No name");
+52:         require(_maxLeverage >= _minLeverage && _minLeverage > 0, "Wrong leverage values");
+53: 
+54:         allowedAsset[_asset] = true;
+55:         _idToAsset[_asset].name = _name;
+56: 
+57:         _idToAsset[_asset].chainlinkFeed = _chainlinkFeed;
+58: 
+59:         _idToAsset[_asset].minLeverage = _minLeverage;
+60:         _idToAsset[_asset].maxLeverage = _maxLeverage;
+61:         _idToAsset[_asset].feeMultiplier = _feeMultiplier;
+62:         _idToAsset[_asset].baseFundingRate = _baseFundingRate;
+63: 
+64:         emit AssetAdded(_asset, _name);
+65:     }
+```
+
+# [L-02] NO TRANSFER OWNERSHIP PATTERN
 
 The protocol use openzeppelin ownable contract `import "@openzeppelin/contracts/access/Ownable.sol";`. This contract doesn't have a two step transfer pattern.
 
 Recommend considering implementing a two step process where the owner or admin nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed. This ensures the nominated EOA account is a valid and active account.
 
-# [L-02] UNSPECIFIC COMPILER VERSION PRAGMA
+# [L-03] UNSPECIFIC COMPILER VERSION PRAGMA
 
 ```solidity
 pragma solidity ^0.8.0;
