@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "a user can become his own direct referral by calling setReferred() and then calling createReferralCode()",
+  "issueId": 369,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/369"
+}
