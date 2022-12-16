@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "BondNFT.sol : `createLock` does not update the owner",
+  "issueId": 457,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/457"
+}
