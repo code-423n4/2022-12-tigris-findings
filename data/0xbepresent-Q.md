@@ -13,3 +13,12 @@ In the ```Trading.sol::setTradingExtension()``` add a non-zero address validatio
 Links:
 
 - [contracts/Trading.sol#L975](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L975)
+
+3 - Use the official library released
+==
+
+Use the official library of [ERC20Permit.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Permit.sol)
+
+Links:
+
+- [contracts/StableToken.sol#L4](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableToken.sol#L4)
