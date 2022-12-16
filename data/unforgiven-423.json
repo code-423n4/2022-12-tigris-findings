@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "3",
+  "title": "wrong accRewardsPerShare[][] calculation and fund loss if user call claim() multiple times for expired bond in Lock and BondNFT because of multiple calculation of _pendingDelta",
+  "issueId": 423,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/423"
+}
