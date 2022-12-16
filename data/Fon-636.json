@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Fon",
+  "risk": "",
+  "title": "Ignored return value from \"IERC20.transferFrom()\"",
+  "issueId": 636,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/636"
+}
