@@ -1,5 +1,5 @@
 ## No. 1
-It is possible to apply grieving attack during creating referral code. Whenever a user intends to create referral code by calling `createReferralCode`, the attacker applies front-run attack and calls this function with the same parameter. So, the user's transaction will be reverted and can not create a referral code. 
+It is possible to apply grieving attack during creating referral code. Whenever a user intends to create referral code by calling `createReferralCode`, the attacker applies front-run attack and calls this function with the same parameter. So, the user's transaction will be reverted and can not create a referral code, because of `require(_referral[_hash] == address(0), "Referral code already exists");`.
 ```
 function createReferralCode(bytes32 _hash) external {
         require(_referral[_hash] == address(0), "Referral code already exists");
