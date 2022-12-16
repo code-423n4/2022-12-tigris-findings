@@ -9,8 +9,15 @@ to:
 -  function transfer(address, uint) external returns(bool);
 (according to openzeppelin's standard)
 
+### 2 EVENT INDEXING
+There should be some kind of indexing for important parameters in events. There is none in lines:
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/BondNFT.sol#L377-L382
 
-### Don't Initialize Variables with Default Value
+### Finding
+Add keyword indexed to the _tigAsset variable, just like this:
+event Lock(address indexed _tigAsset, uint256 _amount, uint256 _period, address _owner, uint256 _id);
+
+### 3 Don't Initialize Variables with Default Value
 
 #### Impact
 Issue Information: [G001](https://github.com/byterocket/c4-common-issues/blob/main/0-Gas-Optimizations.md#g001---dont-initialize-variables-with-default-value)
