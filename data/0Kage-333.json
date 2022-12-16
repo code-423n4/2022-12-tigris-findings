@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "2",
+  "title": "`setAllowedAsset` in GovNFT can be set to `true` for random asset not part of contract",
+  "issueId": 333,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/333"
+}
