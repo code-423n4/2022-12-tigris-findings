@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "3",
+  "title": "`_handleOpenFees` returns an incorrect value for `_feePaid`. This directly impacts margin calculations",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/367"
+}
