@@ -55,6 +55,17 @@ A known vulnerable compiler version may accidentally be selected or security too
 
 It is recommended to pin to a concrete compiler version.
 
+# [L-05] Potential issue on synchronised data
+
+```solidity
+mapping(address => bool) public allowedAsset;
+```
+
+For example the `allowedAsset` mapping is being used in many contracts, like `BondNFT.sol`, `GovNFT.sol`, `GovNFTBridged.sol`, `Lock.sol`, `PairsContract.sol`. If one contract failed / forgot to set an asset is allowed or not, may cause a sync data issue.
+
+It's best to have a parent storage contract to store this data.
+
+
 # [N-01] Not using named import
 
 All import using plain `import 'file.sol`' instead use named import.
