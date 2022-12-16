@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "carlitox477",
+  "risk": "3",
+  "title": "BondNFT: use of multiple unchecked blocks can lead to permanent funds freezing in edge cases",
+  "issueId": 307,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/307"
+}
