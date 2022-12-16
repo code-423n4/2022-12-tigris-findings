@@ -30,8 +30,6 @@ The `listToken(...)` function does not validate the `_token` address.
     }
 ```
 
-
-
 ## Functions in `TradingExtension` do not validate addresses
 
 File: [`TradingExtension.sol#L240-L272`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L240-L272)
@@ -90,6 +88,7 @@ File: [`StableVault.sol#L36`](https://github.com/code-423n4/2022-12-tigris/blob/
     }
 ```
 
+
 2 - Check `_trading` local variable is different of `address(0)` and does emit event.
 
 File: [`TradingExtension.sol#L35`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L35)
@@ -110,6 +109,46 @@ File: [`TradingExtension.sol#L35`](https://github.com/code-423n4/2022-12-tigris/
 ```
 
 **Recommendation:** Consider validating `_stable` and `_trading` addresses and emitting event for state variables changes.
+
+## Missing `address(0)` checks 
+
+There are variables in the following contracts that could be set as `address(0)` by mistake. Despite they could be fixed later by owner, it's a good practice to check for `address(0)`.
+
+[`BondNFT.sol#L367`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L367)
+
+```solidity
+    function setManager(
+        address _manager
+    ) public onlyOwner() {
+        manager = _manager;
+    }
+```
+
+
+[`BondNFT.sol#L350`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/BondNFT.sol#L350)
+```solidity
+    function addAsset(address _asset) external onlyOwner {
+        require(assets.length == 0 || assets[assetsIndex[_asset]] != _asset, "Already added");
+        assetsIndex[_asset] = assets.length;
+        assets.push(_asset);
+        allowedAsset[_asset] = true;
+        epoch[_asset] = block.timestamp/DAY;
+    }
+```
+
+[`GovNFT.sol#L115`](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/GovNFT.sol#L115)
+
+```solidity
+    function setTrustedAddress(uint16 _chainId, address _contract, bool _bool) external onlyOwner {
+        isTrustedAddress[_chainId][_contract] = _bool;
+    }
+```
+
+*Recommendation:* Consider inserting `address(0)` check:
+
+```solidity
+require(address(_VARIABLE_TO_BE_CHECKED) != address(0), "Address cannot be zero");
+```
 
 ## The function `Lock.release` don't check for the owner of the asset 
 
