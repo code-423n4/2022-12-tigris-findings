@@ -76,3 +76,27 @@ Here are a few examples:
 - File: `Trading.sol` [Line 183](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L183)
 - File: `Trading.sol` [Line 237](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L237)
 - File: `Trading.sol` [Line 270](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/Trading.sol#L270)
+
+## 6. Functions with access control marked as `payable` cost less gas
+
+Functions with access control will cost less gas when marked as `payable` (assuming the caller has correct permissions). This is because the compiler doesn't need to check for `msg.value`, saving approximately **20 gas** per call.
+
+Here is an example:
+
+File: `TradingExtension.sol` [Line 231-233](https://github.com/code-423n4/2022-12-tigris/blob/main/contracts/TradingExtension.sol#L231-L233)
+
+```
+    function setChainlinkEnabled(bool _bool) external onlyOwner {
+        chainlinkEnabled = _bool;
+    }
+```
+
+In the example above, the function can be marked as `payable` to save gas.
+
+Here is what that would look like:
+
+```
+    function setChainlinkEnabled(bool _bool) external payable onlyOwner {
+        chainlinkEnabled = _bool;
+    }
+```
