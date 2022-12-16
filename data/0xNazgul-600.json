@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xNazgul",
+  "risk": "",
+  "title": "[NAZ-M9] `isMinter` Can Be Granted By The Deployer Of `StableToken` And Mint/Burn Arbitrary Amount Of Tokens",
+  "issueId": 600,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/600"
+}
