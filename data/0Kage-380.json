@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "3",
+  "title": "Burn Fees deducted from trader margin is not burnt in `_handleCloseFees` and `_handleOpenFees`",
+  "issueId": 380,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/380"
+}
