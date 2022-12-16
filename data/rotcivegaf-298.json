@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rotcivegaf",
+  "risk": "2",
+  "title": "The `depositWithPermit` function is broken when using tokens that do not follow the ERC2612 standard",
+  "issueId": 298,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/298"
+}
