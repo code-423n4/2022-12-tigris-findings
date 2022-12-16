@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xmuxyz",
+  "risk": "3",
+  "title": "Miscalculation for decimals causes a depositor to receive `0` amount of `stable tokens` or `tigAsset` ",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/364"
+}
