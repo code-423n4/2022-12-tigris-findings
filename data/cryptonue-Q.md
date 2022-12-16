@@ -22,14 +22,26 @@ File: PairsContract.sol
 64:         emit AssetAdded(_asset, _name);
 65:     }
 ```
+# [L-02] Unbounded values
 
-# [L-02] NO TRANSFER OWNERSHIP PATTERN
+There is no boundary on values for feeMultiplier (may become a ruggable vector)
+
+```solidity
+File: PairsContract.sol
+104:     function updateAssetFeeMultiplier(uint256 _asset, uint256 _feeMultiplier) external onlyOwner {
+105:         bytes memory _name  = bytes(_idToAsset[_asset].name);
+106:         require(_name.length > 0, "!Asset");
+107:         _idToAsset[_asset].feeMultiplier = _feeMultiplier;
+108:     }
+```
+
+# [L-03] NO TRANSFER OWNERSHIP PATTERN
 
 The protocol use openzeppelin ownable contract `import "@openzeppelin/contracts/access/Ownable.sol";`. This contract doesn't have a two step transfer pattern.
 
 Recommend considering implementing a two step process where the owner or admin nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed. This ensures the nominated EOA account is a valid and active account.
 
-# [L-03] UNSPECIFIC COMPILER VERSION PRAGMA
+# [L-04] UNSPECIFIC COMPILER VERSION PRAGMA
 
 ```solidity
 pragma solidity ^0.8.0;
