@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "mookimgo",
+  "risk": "2",
+  "title": "_safeMint malicious callback can corrupt _limitOrders data in Position.sol ",
+  "issueId": 288,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/288"
+}
