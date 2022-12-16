@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "hansfriese",
+  "risk": "",
+  "title": "`Trading.liquidatePosition()` shouldn't charge full closing fees when `_payout` is small or negative.",
+  "issueId": 513,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/513"
+}
