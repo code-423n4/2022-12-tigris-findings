@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "If a staker input `0 (zero)` into the `_amount` parameter of the `Lock#lock()` function, this transaction always fail due to underflow.",
+  "issueId": 314,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/314"
+}
