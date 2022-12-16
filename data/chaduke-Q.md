@@ -108,3 +108,22 @@ function setMaxOi(uint256 _asset, address _tigAsset, uint256 _maxOi) external on
         _idToOi[_asset][_tigAsset].maxOi = _maxOi;
     }
 ```
+
+QA12: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L647
+One needs to check that `` _permitData.amount`` is equal to ``_margin/_marginDecMultiplier`` right before line 651. 
+
+QA13: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/Trading.sol#L652
+``type(uint).max`` should be changed to  ``_margin/_marginDecMultiplier``. 
+
+QA14: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/TradingExtension.sol#L185-L187
+Rounding might lose precision. 
+ 
+QA15: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/PairsContract.sol#L34-L35
+This can be factored into a modifier called ``assetExists(uint256 _asset)`` to be more elegant and efficient:
+```
+ modifier assetExists(uint256 _asset) {
+        require(_idToAsset[_asset] !=0, "!Asset");
+        _;
+    }
+```
+
