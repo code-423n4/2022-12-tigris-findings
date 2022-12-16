@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "wagmi",
+  "risk": "",
+  "title": "Wrong amount deposited by users in `addToPosition()` function",
+  "issueId": 475,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/475"
+}
