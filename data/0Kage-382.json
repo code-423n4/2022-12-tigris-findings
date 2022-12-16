@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "2",
+  "title": "`_handleCloseFees` returns a `_payout` that does not account for referral fees",
+  "issueId": 382,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/382"
+}
