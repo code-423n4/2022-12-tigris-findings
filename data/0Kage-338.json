@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "3",
+  "title": "Open access to `distribute` function can lead to token loss for users & mess up rewards accounting ",
+  "issueId": 338,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/338"
+}
