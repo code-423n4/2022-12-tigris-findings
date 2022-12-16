@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "jesusrod15",
+  "risk": "",
+  "title": "tradin.sol _handleWithdraw does not verify that tokens were transferred successfully",
+  "issueId": 609,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/609"
+}
