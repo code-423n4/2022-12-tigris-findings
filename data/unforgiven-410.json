@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "3",
+  "title": "withdraw() function of the StableVault allows users to withdraw by any token which can cause contract to lose other valuable tokens in contract balance or users lose their funds if they send wrong token by mistake",
+  "issueId": 410,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/410"
+}
