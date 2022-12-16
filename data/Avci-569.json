@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Avci",
+  "risk": "",
+  "title": "Using .transfer may cause loss of user funds",
+  "issueId": 569,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/569"
+}
