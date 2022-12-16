@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "karanctf",
+  "risk": "",
+  "title": " Use safeTransferFrom() instead of transferFrom()",
+  "issueId": 500,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/500"
+}
