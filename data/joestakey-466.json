@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "joestakey",
+  "risk": "2",
+  "title": "`TradingLibrary.verifyPrice` is using a deprecated ChainLink API, which can lead to a stale price being returned.",
+  "issueId": 466,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/466"
+}
