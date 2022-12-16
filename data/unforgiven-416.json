@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "setAllowedAsset() should only allow setting values for added assets, and if an asset set as allowed while it's not in assets list then distribute() would work for that asset but userPaid[][] won't get updated when users deposit tokens for that asset",
+  "issueId": 416,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/416"
+}
