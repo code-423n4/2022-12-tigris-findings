@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0Kage",
+  "risk": "2",
+  "title": "Funding Rate can exceed maximum allowed `base funding` fate while adding a new asset pair",
+  "issueId": 320,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/320"
+}
