@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xRajkumar",
+  "risk": "2",
+  "title": "Unsafe usage of ERC20 transfer and transferFrom",
+  "issueId": 463,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/463"
+}
