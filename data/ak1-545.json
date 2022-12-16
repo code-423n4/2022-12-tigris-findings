@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "",
+  "title": "Trading.sol : unsafe fee calculation",
+  "issueId": 545,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/545"
+}
