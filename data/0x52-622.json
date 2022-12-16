@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0x52",
+  "risk": "",
+  "title": "User can abuse tight stop losses and high leverage to make risk free trades",
+  "issueId": 622,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/622"
+}
