@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "2",
+  "title": "TradingExtension.sol : setMaxGasPrice should not set the gax value more than 1000 Gwei",
+  "issueId": 446,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/446"
+}
