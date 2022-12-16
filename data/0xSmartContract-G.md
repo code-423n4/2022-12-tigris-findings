@@ -1,28 +1,41 @@
 ### Gas Optimizations List
 | Number | Optimization Details | Context |
 |:--:|:-------| :-----:|
-| [G-01] | Packing and storing state variables | 1 |
-| [G-02] |Using `delete` instead of setting  mappings and structs to 0 saves gas | 5 |
-| [G-03] | Do not calculate constants variables | 1 |
-| [G-04] | Remove import 'hardhat/console.sol’  | 1 |
-| [G-05] | require() or revert() statements that check input arguments should be at the top of the function | 3|
-| [G-06] | Use ``assembly`` to write _address storage values_  | 12 |
-| [G-07] | Setting the _constructor_ to `payable`  | 8 |
-| [G-08] | Functions guaranteed to revert_ when callled by normal users can be marked `payable`  | 69 |
-| [G-09] |Empty blocks should be removed or emit something  | 1 |
-| [G-10] | Optimize names to save gas| All contracts |
-| [G-11] | `x += y (x -= y)` costs more gas than `x = x + y (x = x - y)` for state variables|42|
-| [G-12] | Comparison operators  |20 |
-| [G-13] |Use ``double require`` instead of using ``&&``  |12  |
-| [G-14] | Sort Solidity operations using short-circuit mode |22 |
-| [G-15] | Use a more recent version of solidity |All contracts  |
-| [G-16] | The solady Library's Ownable contract is significantly gas-optimized, which can be used |  |
-| [G-17] | Use `Solmate SafeTransferLib ` contracts |  |
-| [G-18] | Use Solmate Reentrancy Guard  |  |
+| [G-01] | Avoid contract existence checks by using solidity version 0.8.10 or later| 2 |
+| [G-02] |Packing and storing state variables | 2 |
+| [G-03] | Using `delete` instead of setting  mappings and structs to 0 saves gas | 5 |
+| [G-04] | Do not calculate constants variables  | 1 |
+| [G-05] | Use abi.encodePacked() instead of abi.encode() | 2|
+| [G-06] | Remove import 'hardhat/console.sol’  | 1 |
+| [G-07] | require() or revert() statements that check input arguments should be at the top of the function  | 3 |
+| [G-08] | Use ``assembly`` to write _address storage values_  | 12 |
+| [G-09] |Setting the _constructor_ to `payable`  | 8 |
+| [G-10] | Functions guaranteed to revert_ when callled by normal users can be marked `payable` | 69 |
+| [G-11] | Empty blocks should be removed or emit something|1|
+| [G-12] | Optimize names to save gas  |All contracts |
+| [G-13] |`x += y (x -= y)` costs more gas than `x = x + y (x = x - y)` for state variables |42  |
+| [G-14] | Comparison operators |20 |
+| [G-15] | Use ``double require`` instead of using ``&&``|12  |
+| [G-16] | Sort Solidity operations using short-circuit mode | 22 |
+| [G-17] | Use a more recent version of solidity |All contracts |
+| [G-18] | The solady Library's Ownable contract is significantly gas-optimized, which can be used |  |
+| [G-19] | Use `Solmate SafeTransferLib ` contracts |  |
+| [G-20] | Use Solmate Reentrancy Guard |  |
 
-Total 18 issues
+Total 20 issues
+### [G-01] Avoid contract existence checks by using solidity version 0.8.10 or later
 
-### [G-01] Packing and storing state variables
+Prior to 0.8.10 the compiler inserted extra code, including EXTCODESIZE (700 gas), to check for contract existence for external calls. In more recent solidity versions, the compiler will not insert these checks if the external call has a return value
+
+```solidity
+2 results - 1 file
+
+contracts/Lock.sol:
+  114:             uint balanceBefore = IERC20(assets[i]).balanceOf(address(this));
+
+  116:             uint balanceAfter = IERC20(assets[i]).balanceOf(address(this));
+
+```### [G-02] Packing and storing state variables
 
 For the `gas` state variable in the `GovNFT.sol` contract, the `gas limit` is 30_000_000 in the Polygon network where the platform is, and 287_000_000 in the Arbitrum network.
 
@@ -30,7 +43,7 @@ Even if there are increases, it is expected that this amount will not exceed the
 
 
 ```solidity
-
+2 reults 2 files
 contracts\GovNFT.sol:
   15:     uint256 private counter = 1;	        	// slot 0
   16:     uint256 private constant MAX = 10000;
@@ -54,9 +67,37 @@ contracts\GovNFT.sol:
 + 18:     string public baseURI;			// slot 2
 ```
 
+```solidity
+contracts/TradingExtension.sol:
 
+    /// @audit uint256(32):validSignatureTimer, 
+    /// @audit address(20):tarding, bool(1):chainlinkEnabled, bool(1):paused, 
+    /// @audit mapping(32):isNode,
+    /// @audit mapping(32):minPositionSize, 
+    /// @audit mapping(32):allowedMargin, 
+    /// @audit address(20):pairsContract, 
+    /// @audit address(20):referrals, 
+    /// @audit address(20):position, uint96(12): maxGasPrice
+    /// @ 8 slots instead of 10 slots 
 
-### [G-02] Using `delete` instead of setting  mappings and structs to 0 saves gas
+  13     address public trading;
+  14     uint256 public validSignatureTimer;
+  15     bool public chainlinkEnabled;
+  16 
+  17     mapping(address => bool) private isNode;
+  18     mapping(address => uint) public minPositionSize;
+  19     mapping(address => bool) public allowedMargin;
+  20     bool public paused;
+  21 
+  22     IPairsContract private pairsContract;
+  23     IReferrals private referrals;
+  24     IPosition private position;
+  25 
+         ///@audit uint96 = 79_228_162_514_264_337_593_543_950,_335
+  26     uint public maxGasPrice = 1000000000000; // 1000 gwei
+```
+
+### [G-03] Using `delete` instead of setting  mappings and structs to 0 saves gas
 
 ```solidity
 5 results - 4 files
@@ -84,7 +125,7 @@ contracts\BondNFT.sol:
 
 ```
 
-### [G-03] Do not calculate constants variables
+### [G-04] Do not calculate constants variables
 
 Due to how constant variables are implemented (replacements at compile-time), an expression assigned to a constant variable is recomputed each time that the variable is used, which wastes some gas.
 
@@ -105,7 +146,27 @@ contracts\BondNFT.sol:
 
 ```
 
-### [G-04] Remove import 'hardhat/console.sol’
+### [G-05] Use abi.encodePacked() instead of abi.encode()
+
+```solidity
+2 results - 2 files
+
+contracts/GovNFT.sol:
+  141:         bytes memory payload = abi.encode(_to, tokenId);
+
+contracts/GovNFTBridged.sol:
+  103:         bytes memory payload = abi.encode(_to, tokenId);
+```
+**Recommendation Code:**
+```diff
+
+contracts/GovNFT.sol:
+- 141:         bytes memory payload = abi.encode(_to, tokenId);
++ 141:         bytes memory payload = abi.encodePacked(_to, tokenId);
+
+```
+
+### [G-06] Remove import 'hardhat/console.sol’
 
 It's used to print the values of variables while running tests to help debug and see what's happening inside your contracts But since it's a development tool, it serves no purpose on mainnet. 
 
@@ -116,10 +177,10 @@ contracts\Lock.sol:
   4: import "hardhat/console.sol";
 ```
 
-**Recommendation:**
+Recommendation:
 Use only for tests
 
-### [G-05] require() or revert() statements that check input arguments should be at the top of the function
+### [G-07] require() or revert() statements that check input arguments should be at the top of the function
 
 Checks that involve constants should come before checks that involve state variables, function calls, and calculations. By doing these checks first, the function is able to revert before wasting a Gcoldsload (2100 gas*) in a function that may ultimately revert in the unhappy case.
 
@@ -158,7 +219,9 @@ contracts/BondNFT.sol:
 
 ```
 
-### [G-06] Use ``assembly`` to write _address storage values_ 
+
+
+### [G-08] Use ``assembly`` to write _address storage values_ 
 
 ```solidity
 12 results - 7 files
@@ -232,7 +295,7 @@ contracts\PairsContract.sol:
      }
 ```
 
-### [G-07] Setting the _constructor_ to `payable`
+### [G-09] Setting the _constructor_ to `payable`
 
 You can cut out 10 opcodes in the creation-time EVM bytecode if you declare a constructor payable. Making the constructor payable eliminates the need for an initial check of ```msg.value == 0``` and saves ```13 gas``` on deployment with no security risks.
 
@@ -291,7 +354,7 @@ contracts\TradingExtension.sol:
 **Recommendation:**
 Set the constructor to ```payable```
 
-### [G-08]  Functions guaranteed to revert_ when callled by normal users can be marked `payable` 
+### [G-10]  Functions guaranteed to revert_ when callled by normal users can be marked `payable` 
 
 If a function modifier or require such as onlyOwner-admin is used, the function will revert if a normal user tries to pay the function. Marking the function as payable will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are CALLVALUE(2), DUP1(3), ISZERO(3), PUSH2(3), JUMPI(10), PUSH1(3), DUP1(3), REVERT(0), JUMPDEST(1), POP(2) which costs an average of about 21 gas per call to the function, in addition to the extra deployment cost.
 
@@ -442,7 +505,7 @@ contracts/utils/MetaContext.sol:
 **Recommendation:**
 Functions guaranteed to revert when called by normal users can be marked payable  (for only ```onlyOwner, onlyManager, onlyMinter or onlyProtocol``` functions)
 
-### [G-09] Empty blocks should be removed or emit something
+### [G-11] Empty blocks should be removed or emit something
 
 The code should be refactored such that they no longer exist, or the block should do something useful, such as emitting an event or reverting. If the contract is meant to be extended, the contract should be abstract and the function signatures be added without any default implementation. If the block is an empty if-statement block to avoid doing subsequent checks in the else-if/else conditions, the else-if/else conditions should be nested under the negation of the if-statement, because they involve different classes of checks, which may lead to the introduction of errors when the code is later modified (if(x){}else if(y){...}else{...} => if(!x){if(y){...}else{...}}). Empty receive()/fallback() payable functions that are not used, can be removed to save deployment gas.
 
@@ -453,7 +516,7 @@ contracts/StableToken.sol:
   11:     constructor(string memory name_, string memory symbol_) ERC20Permit(name_) ERC20(name_, symbol_) {}
 ```
 
-### [G-10] Optimize names to save gas
+### [G-12] Optimize names to save gas
 Contracts most called functions could simply save gas by function ordering via ```Method ID```. Calling a function at runtime will be cheaper if the function is positioned earlier in the order (has a relatively lower Method ID) because ```22 gas``` are added to the cost of a function for every position that came before it. The caller can save on gas if you prioritize most called functions. 
 
 **Context:** 
@@ -497,8 +560,7 @@ d9a3aa3c  =>  setAllowedAsset(address,bool)
 d0ebdbe7  =>  setManager(address)
 ```
 
-
-### [G-11] `x += y (x -= y)` costs more gas than `x = x + y (x = x - y)` for state variables
+### [G-13] `x += y (x -= y)` costs more gas than `x = x + y (x = x - y)` for state variables
 
 ```solidity
 27 results - 7 files
@@ -599,8 +661,7 @@ contracts/BondNFT.sol:#L150
 ```
 
 `x -= y` costs more gas than `x = x  - y` for state variables.
-
-### [G-12] Comparison operators
+### [G-14] Comparison operators
 
 In the EVM, there is no opcode for `>=` or `<=`. When using greater than or equal, two operations are performed: `> and =`. Using strict comparison operators hence saves gas
 
@@ -658,7 +719,7 @@ contracts/BondNFT.sol:
 Replace <= with <, and >= with >. Do not forget to increment/decrement the compared variable.
 
 
-### [G-13] Use ``double require`` instead of using ``&&``
+### [G-15] Use ``double require`` instead of using ``&&``
 
 Using double require instead of operator && can save more gas
 When having a require statement with 2 or more expressions needed, place the expression that cost less gas first.
@@ -685,8 +746,7 @@ contracts/utils/TradingLibrary.sol:
    39:             if (_direction && _currentPrice >= _price) {
    41:             } else if (_direction && _currentPrice < _price) {
    43:             } else if (!_direction && _currentPrice <= _price) {
-  112:         if (_chainlinkEnabled && _chainlinkFeed != address(0)) {
-```
+  112:         if (_chainlinkEnabled && _chainlinkFeed != address(0)) {```
 
 **Recommendation Code:**
  ```diff
@@ -696,7 +756,8 @@ contracts/PairsContract.sol#L52
                  require(_minLeverage > 0, "Wrong leverage values");
 ```
 
-### [G-14] Sort Solidity operations using short-circuit mode
+
+### [G-16] Sort Solidity operations using short-circuit mode
 
 Short-circuiting is a solidity contract development model that uses ```OR/AND``` logic to sequence different cost operations. It puts low gas cost operations in the front and high gas cost operations in the back, so that if the front is low If the cost operation is feasible, you can skip (short-circuit) the subsequent high-cost Ethereum virtual machine operation.
 
@@ -749,7 +810,7 @@ contracts/utils/TradingLibrary.sol:
   112:         if (_chainlinkEnabled && _chainlinkFeed != address(0)) {
 ```
 
-### [G-15] Use a more recent version of solidity
+### [G-17] Use a more recent version of solidity
 
 **Context:** 
 All Contracts
@@ -768,21 +829,20 @@ contracts/BondNFT.sol:
   2: pragma solidity ^0.8.0;
 ```
 
-### [G-16] The solady Library's Ownable contract is significantly gas-optimized, which can be used
+### [G-18] The solady Library's Ownable contract is significantly gas-optimized, which can be used
 
 The project uses the ` onlyOwner ` authorization model I recommend using _Solady's highly gas optimized contract._
 
 https://github.com/Vectorized/solady/blob/main/src/auth/OwnableRoles.sol
 
-
-### [G-17] Use `Solmate SafeTransferLib ` contracts
+### [G-19] Use `Solmate SafeTransferLib ` contracts
 
 **Description:**
 Use the gas-optimized Solmate SafeTransferLib contract for Erc20
 
 https://github.com/transmissions11/solmate/blob/main/src/utils/SafeTransferLib.sol
 
-### [G-18] Use Solmate Reentrancy Guard 
+### [G-20] Use Solmate Reentrancy Guard 
 
 Solmate reentrancy guard is high gas optimized
 
@@ -795,3 +855,4 @@ contracts/StableVault.sol:
 ```
 
 https://github.com/transmissions11/solmate/blob/main/src/utils/ReentrancyGuard.sol
+
