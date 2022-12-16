@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xsomeone",
+  "risk": "3",
+  "title": "Withdrawal Denial-of-Service Attack",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/447"
+}
