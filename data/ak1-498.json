@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "",
+  "title": "Trading.sol : approveProxy function would revert when transfer call gas price increases",
+  "issueId": 498,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/498"
+}
