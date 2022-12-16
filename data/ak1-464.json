@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "ak1",
+  "risk": "2",
+  "title": "StableVault.sol : delistToken can lead for locking of fund if the delisted token has any in the vault",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/464"
+}
