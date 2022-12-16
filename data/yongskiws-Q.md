@@ -1,3 +1,17 @@
+## Using bools for storage incurs overhead
+// Booleans are more expensive than uint256 or any type that takes up a full
+// word because each write operation emits an extra SLOAD to first read the
+// slot's contents, replace the bits taken up by the boolean, and then write
+// back. This is the compiler's defense against contract upgrades and
+// pointer aliasing, and it cannot be disabled.
+
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/3d7a93876a2e5e1d7fe29b5a0e96e222afdc4cfa/contracts/security/ReentrancyGuard.sol#L23-L27
+
+
+Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas) for the extra SLOAD, and to avoid Gsset (20000 gas) when changing from false to true, after having been true in the past
+
+https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableVault.sol#L29
+
 ## Consider Deprecated  ReentrancyGuard dependency in contract StableVault.sol 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol"; L5
 
