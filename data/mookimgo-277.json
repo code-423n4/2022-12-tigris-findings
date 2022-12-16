@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "mookimgo",
+  "risk": "2",
+  "title": "DoS due to approve in claimGovFees Lock.sol",
+  "issueId": 277,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/277"
+}
