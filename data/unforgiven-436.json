@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "distribute() won't update epoch[tigAsset] when totalShares[tigAsset]==0 which can cause later created bond for this tigAsset to have wrong mint epoch",
+  "issueId": 436,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/436"
+}
