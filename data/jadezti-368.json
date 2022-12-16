@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "jadezti",
+  "risk": "3",
+  "title": "In Contract PairsContract, Chainlink price feed can be set to any valid address",
+  "issueId": 368,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/368"
+}
