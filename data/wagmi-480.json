@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "wagmi",
+  "risk": "",
+  "title": "Wrong formula to calculate new price in function `addToPosition()` could be abused by users",
+  "issueId": 480,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/480"
+}
