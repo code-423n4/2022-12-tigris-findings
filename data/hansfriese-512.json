@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "hansfriese",
+  "risk": "",
+  "title": "StopLoss/TakeProfit should be validated again for the new price in `Trading.executeLimitOrder()`",
+  "issueId": 512,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/512"
+}
