@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "kwhuo68",
+  "risk": "",
+  "title": "Token decimals may be above 18 leading to underflow issues",
+  "issueId": 651,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/651"
+}
