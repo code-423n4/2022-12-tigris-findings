@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "3",
+  "title": "tokens loss by mistake if users send their tokens to 0x0 address in crossChain() of GovNFT",
+  "issueId": 413,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/413"
+}
