@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "rbserver",
+  "risk": "",
+  "title": "Access to Chainlink price feeds can be blocked to DOS important trading function calls",
+  "issueId": 653,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/653"
+}
