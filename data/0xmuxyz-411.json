@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": " Should use `safeTransfer()/safeTransferFrom()` instead of using `transfer()/transferFrom()` for ERC20",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/411"
+}
