@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "SmartSek",
+  "risk": "2",
+  "title": "Proxy wallet might be smart contract, leading to potential attack vectors.",
+  "issueId": 319,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/319"
+}
