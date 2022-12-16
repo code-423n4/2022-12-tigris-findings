@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "Trading doesn't support margin Asset tokens which has more than 18 digit decimals and TradingLibrary doesn't support assets which chainlinkFeed for that asset's price has more than 18 digit decimals",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/350"
+}
