@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "fs0c",
+  "risk": "3",
+  "title": "StableVault.sol not taking coins of different decimals in consideration.",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/378"
+}
