@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "jadezti",
+  "risk": "3",
+  "title": "The long and short open interests can be larger than the max open interest limit",
+  "issueId": 370,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/370"
+}
