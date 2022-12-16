@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "UniversalCrypto",
+  "risk": "2",
+  "title": "Approved Spenders can't use function `initiateMarketOrder`",
+  "issueId": 280,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/280"
+}
