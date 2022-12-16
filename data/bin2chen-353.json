@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "bin2chen",
+  "risk": "2",
+  "title": "executeLimitOrder() lack check  slPrice",
+  "issueId": 353,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/353"
+}
