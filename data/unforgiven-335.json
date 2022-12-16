@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "unforgiven",
+  "risk": "2",
+  "title": "function _handleDeposit() in Trading contract, burns all tigAsset balance of the contract instead of the margin amount which would cause fund loss",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/335"
+}
