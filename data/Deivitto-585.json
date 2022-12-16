@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "Deivitto",
+  "risk": "",
+  "title": "Use of `transfer()` instead of `call()` to send eth",
+  "issueId": 585,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/585"
+}
