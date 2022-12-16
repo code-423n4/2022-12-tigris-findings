@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "__141345__",
+  "risk": "3",
+  "title": "`BondNFT.sol#claim()` needs to correct all the missing epochs",
+  "issueId": 392,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/392"
+}
