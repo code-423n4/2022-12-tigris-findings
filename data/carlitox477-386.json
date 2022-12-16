@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "carlitox477",
+  "risk": "2",
+  "title": "# Lock#claimGovFees can be DOS if too many assets are added to BondNFT contract, freezing users funds forever",
+  "issueId": 386,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/386"
+}
