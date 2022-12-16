@@ -1,5 +1,15 @@
 ## QA Report - low risk
 
+### Function `latestAnswer` is deprecated
+Function `latestAnswer`, used in `TradingLibrary.sol`, is deprecated (see [API Reference](https://web.archive.org/web/20210304160150/https://docs.chain.link/docs/deprecated-aggregatorinterface-api-reference#config))
+
+[TradingLibrary.sol: L8](https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/utils/TradingLibrary.sol#L8)
+```solidity
+    function latestAnswer() external view returns (int256);
+```
+___
+___
+
 ### `pragma solidity` version should be upgraded to latest available version before finalization
 
 The current solidity version in most of the contracts is `^0.8.0` (it is `^0.8.9` in IBondNFT.sol), compared to the latest version of `0.8.17`. Only the latest version receives security fixes. Since the latest version often has bugs, it's safer to use releases a few versions older at first. 
