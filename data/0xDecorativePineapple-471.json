@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "0xDecorativePineapple",
+  "risk": "",
+  "title": "The `estimateFees` function will return wrong result as gas prices may be different on destination chains",
+  "issueId": 471,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/471"
+}
