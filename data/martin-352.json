@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "martin",
+  "risk": "2",
+  "title": "[M-01] Return values of `transfer()`/`transferFrom()` not checked",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/352"
+}
