@@ -1,0 +1,3 @@
+1. Stable Vault uses IERC20Mintable to use stable token, but StableToken.sol does not implement it explicitly
+Here is the interface: https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableVault.sol#L9-L13
+Here is the stable token https://github.com/code-423n4/2022-12-tigris/blob/588c84b7bb354d20cbca6034544c4faa46e6a80e/contracts/StableToken.sol#L7
