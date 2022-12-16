@@ -1,0 +1,8 @@
+{
+  "contest": 192,
+  "handle": "erictee",
+  "risk": "2",
+  "title": "Token transfers do not verify that the tokens were successfully transferred",
+  "issueId": 294,
+  "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/294"
+}
