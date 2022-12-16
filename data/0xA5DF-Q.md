@@ -23,3 +23,6 @@ As a mitigation it might be better to force use `release()` when the bond expire
 
 
 ## Protocol might reach insolvency from traders profit
+Traders profiting too much might cause the protocol to mint more StableToken than collateral that's locked in StableVault.
+In such case the last LP to withdraw his funds will not be able to redeem StableToken for StableVault.
+It might be better to spread the loss among all LPs to avoid instability.
