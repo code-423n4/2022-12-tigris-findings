@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "Janio",
-  "risk": "",
+  "risk": "2",
   "title": "One trader can liquidate another traders position",
   "issueId": 518,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/518"
