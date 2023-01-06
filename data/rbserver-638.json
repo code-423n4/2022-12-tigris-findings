@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "rbserver",
-  "risk": "",
+  "risk": "2",
   "title": "`GovNFT` contract's owner can stop Governance NFT holders from receiving more rewards from trades' DAO fees, and such reward amounts can remain in `Trading` contract without belonging to anyone",
   "issueId": 638,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/638"
