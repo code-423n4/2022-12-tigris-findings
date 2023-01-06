@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "hansfriese",
-  "risk": "",
+  "risk": "2",
   "title": "In `Trading.sol`, `tpPrice` should be validated as well.",
   "issueId": 509,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/509"
