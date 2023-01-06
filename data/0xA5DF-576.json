@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "0xA5DF",
-  "risk": "",
+  "risk": "2",
   "title": "`executeLimitOrder()` modifies open-interest with a wrong position value",
   "issueId": 576,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/576"
