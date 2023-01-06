@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "minhtrng",
-  "risk": "",
+  "risk": "2",
   "title": "Not enough margin pulled or burned from user when adding to a position",
   "issueId": 659,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/659"
