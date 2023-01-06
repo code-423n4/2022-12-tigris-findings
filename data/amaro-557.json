@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "amaro",
-  "risk": "",
+  "risk": "2",
   "title": "Unsafe ERC20 methods",
   "issueId": 557,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/557"
