@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "3",
   "title": "Total fee paid is not accounted for referral fee in both function `_handleOpenFees()` and `_handleCloseFees()`",
   "issueId": 476,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/476"
