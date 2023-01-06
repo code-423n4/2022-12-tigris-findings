@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "0x52",
-  "risk": "",
+  "risk": "2",
   "title": "TradingLibrary#verifyPrice doesn't check if data is fresh which can lead to costly downtime",
   "issueId": 647,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/647"
