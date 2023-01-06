@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "0xNazgul",
-  "risk": "",
+  "risk": "2",
   "title": "[NAZ-M8] Use Of Deprecated Chainlink Function `latestAnswer` ",
   "issueId": 594,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/594"
