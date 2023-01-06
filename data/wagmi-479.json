@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "2",
   "title": "Non-zero approval problems for some tokens like USDT",
   "issueId": 479,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/479"
