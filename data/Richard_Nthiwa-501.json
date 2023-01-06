@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "Richard_Nthiwa",
-  "risk": "",
+  "risk": "2",
   "title": "_handleDeposit() uses arbitrary from in transferFrom in combination with permit",
   "issueId": 501,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/501"
