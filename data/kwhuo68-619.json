@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "kwhuo68",
-  "risk": "",
+  "risk": "2",
   "title": "Range set to 0 in setLimitOrderPriceRange() can cause issues in executeLimitOrder()",
   "issueId": 619,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/619"
