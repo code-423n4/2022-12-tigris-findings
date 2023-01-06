@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "peanuts",
-  "risk": "",
+  "risk": "3",
   "title": "Wrong address input in BondNFT.createLock results in wrong _owner being saved in memory",
   "issueId": 554,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/554"
