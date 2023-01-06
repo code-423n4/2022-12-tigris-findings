@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "kwhuo68",
-  "risk": "",
+  "risk": "2",
   "title": " Trading issue when _maxLeverage is set to large values ",
   "issueId": 623,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/623"
