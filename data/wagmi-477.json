@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "3",
   "title": "Until at least one position is closed, all DAO fee will be burnt",
   "issueId": 477,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/477"
