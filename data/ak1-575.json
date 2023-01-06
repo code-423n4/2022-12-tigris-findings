@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "ak1",
-  "risk": "",
+  "risk": "2",
   "title": "Unsafe division before multiplication which lead to truncation of value",
   "issueId": 575,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/575"
