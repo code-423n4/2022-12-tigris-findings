@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "hansfriese",
-  "risk": "",
+  "risk": "2",
   "title": "New fee settings shouldn't be applied to already existing orders.",
   "issueId": 514,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/514"
