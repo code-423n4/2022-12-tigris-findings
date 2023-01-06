@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "philogy",
-  "risk": "",
+  "risk": "2",
   "title": "Owner Can Rug Any and All Users Anytime",
   "issueId": 499,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/499"
