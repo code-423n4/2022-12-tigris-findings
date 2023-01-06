@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "yjrwkk",
-  "risk": "",
+  "risk": "2",
   "title": "setFees should update fees only for new orders",
   "issueId": 612,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/612"
