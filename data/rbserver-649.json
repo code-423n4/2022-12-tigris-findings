@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "rbserver",
-  "risk": "",
+  "risk": "3",
   "title": "Governance NFT holder, whose NFT was minted before `Trading._handleOpenFees` function is called, can lose deserved rewards after `Trading._handleOpenFees` function is called",
   "issueId": 649,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/649"
