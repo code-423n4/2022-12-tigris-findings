@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "rbserver",
-  "risk": "",
+  "risk": "2",
   "title": "Compromised or malicious owner of `GovNFT` contract can call `_bridgeMint` function on Chain A to block a Governance NFT's holder from bridging such NFT from Chain B to Chain A",
   "issueId": 633,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/633"
