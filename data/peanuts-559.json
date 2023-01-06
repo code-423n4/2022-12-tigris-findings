@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "peanuts",
-  "risk": "",
+  "risk": "2",
   "title": "Centralization risk of Owner in controlling allowed assets ",
   "issueId": 559,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/559"
