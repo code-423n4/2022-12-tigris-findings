@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "JC",
-  "risk": "",
+  "risk": "G",
   "title": "Gas Optimizations",
   "issueId": 617,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/617"
