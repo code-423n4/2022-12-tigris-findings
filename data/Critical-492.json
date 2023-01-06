@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "Critical",
-  "risk": "",
+  "risk": "2",
   "title": "`StableVault.sol#withdraw()`  More shares will be burned due to precision loss",
   "issueId": 492,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/492"
