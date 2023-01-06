@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "eierina",
-  "risk": "",
+  "risk": "2",
   "title": "Chainlink latestAnswer() is deprecated",
   "issueId": 625,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/625"
