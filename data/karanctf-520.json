@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "karanctf",
-  "risk": "",
+  "risk": "2",
   "title": "`_newPrice` doesn't calculate newprice correctly due to precision loss",
   "issueId": 520,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/520"
