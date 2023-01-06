@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "0xNazgul",
-  "risk": "",
+  "risk": "2",
   "title": "[NAZ-M10] Deprecated Function Should Be Removed",
   "issueId": 603,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/603"
