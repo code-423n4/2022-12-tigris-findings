@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "Critical",
-  "risk": "",
+  "risk": "3",
   "title": "A sophisticated user can pick a price from the past `_validSignatureTimer` as `_priceData` to open positions for profit",
   "issueId": 495,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/495"
