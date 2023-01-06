@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "3",
   "title": "Protocol loss in case price is far away from stop loss price.",
   "issueId": 482,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/482"
