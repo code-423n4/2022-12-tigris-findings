@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "carlitox477",
-  "risk": "",
+  "risk": "2",
   "title": "Trading#initiateMarketOrder allows to open a position with more margin than expected due to _handleOpenFees wrong calculation when a trade is referred",
   "issueId": 542,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/542"
