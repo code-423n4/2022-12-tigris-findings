@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "Deivitto",
-  "risk": "",
+  "risk": "2",
   "title": "ERC20 Tokens with more than 18 `decimals` are not compatible",
   "issueId": 581,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/581"
