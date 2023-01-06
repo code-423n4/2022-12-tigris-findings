@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "ladboy233",
-  "risk": "",
+  "risk": "2",
   "title": "Typo in BondNFT contract",
   "issueId": 519,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/519"
