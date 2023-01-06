@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "0xDecorativePineapple",
-  "risk": "",
+  "risk": "2",
   "title": "Incorrect Handling of ERC20 Token Decimals",
   "issueId": 561,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/561"
