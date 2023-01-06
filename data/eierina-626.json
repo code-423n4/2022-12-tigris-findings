@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "eierina",
-  "risk": "",
+  "risk": "2",
   "title": "Deposits would revert",
   "issueId": 626,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/626"
