@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "vanko1",
-  "risk": "",
+  "risk": "2",
   "title": "`StableVault`'s deposit and withdraw functions do not use the ERC20 standard safely",
   "issueId": 470,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/470"
