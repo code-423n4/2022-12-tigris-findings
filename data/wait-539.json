@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wait",
-  "risk": "",
+  "risk": "3",
   "title": "Functions of Trading contract can be reentered by Position.sol#mint",
   "issueId": 539,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/539"
