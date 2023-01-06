@@ -1,7 +1,7 @@
 {
   "contest": 192,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "2",
   "title": " Centralization Risks: Some issues grouped into one",
   "issueId": 485,
   "issueUrl": "https://github.com/code-423n4/2022-12-tigris-findings/issues/485"
