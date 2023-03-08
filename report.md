@@ -1,3 +1,11 @@
+---
+sponsor: "Tigris Trade"
+slug: "2022-12-tigris"
+date: "2023-02-17"  
+title: "Tigris Trade contest"
+findings: "https://github.com/code-423n4/2022-12-tigris-findings/issues"
+contest: 192
+---
 
 # Overview
 
